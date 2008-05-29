@@ -2,9 +2,9 @@
 
 THE GAME:
 
-  A ball bounces inside a room. Point and click the ball to
-  gain a point and send it up into the air. But if it touches
-  the floor, you lose a point!
+  A ball falls and bounces inside a room. Point and click the ball to
+  gain a point and send it up into the air. But if it touches the
+  floor, you lose a point!
 
   Get 15 points to win!
 
@@ -23,13 +23,12 @@ DEMONSTRATES:
 
 CURRENT STATUS:
 
-  * All game parts complete.
-  * Library requirements not implemented.
+  * Nonfuncitonal (library requirements not implemented.)
 
 
 AUTHOR:
 
-  John Croisant, 2008-05-27
+  John Croisant, 2008-05-28
 
 =end
 
@@ -71,7 +70,6 @@ def make_game
   game = Game.new
   
   game[:score] = 0
-  game.background = :black
   
   game.when_key_pressed(:q) do
     puts "Bye!"
@@ -84,6 +82,13 @@ def make_game
   end
   
   return game
+end
+
+
+def make_view
+  return View.new(:size => [240,480],
+                  :center => v(0,200),
+                  :background => :black)
 end
 
 
@@ -112,12 +117,14 @@ end
 
 def main
   $game = make_game
+  $game.view = make_view
+
   $game[:walls] = make_walls
   $game[:floor] = make_floor
   $game[:ball]  = make_ball
   
   $game.world = make_world
-  $game.world.add( floor, ball, walls )
+  $game.world.add( $game[:floor], $game[:ball], $game[:walls] )
 
   $game[:ball].when_clicked do |click|
     $game[:score] += 1
