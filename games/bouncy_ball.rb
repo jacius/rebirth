@@ -28,7 +28,7 @@ CURRENT STATUS:
 
 AUTHOR:
 
-  John Croisant, 2008-05-28
+  John Croisant, 2008-05-27 - 2008-05-29
 
 =end
 
@@ -37,7 +37,7 @@ AUTHOR:
 # Represents a bouncing ball.
 class Ball < GameObject
   # Set up the physical and visual properties of the ball.
-  def initialize( params )
+  def initialize( params = {} )
     base_params = { 
       :center  => v(0,0),
       :radius  => 15.0,
