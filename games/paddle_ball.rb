@@ -90,4 +90,22 @@ class Paddle < GameObject
     clear_hooks "+up", "-up", "+down", "-down"
   end
 
+
+  def ai_track_ball( ball )
+    @ball = ball
+    @fuzz = 10
+
+    before_update( :name => "tracking", :priority => 10 ) do
+      diff = @ball.y - self.y
+
+      if diff > @fuzz
+        self.direction = 1
+      elsif diff < -@fuzz
+        self.direction = 1
+      else
+        self.direction = 0
+      end
+    end
+  end
+
 end
