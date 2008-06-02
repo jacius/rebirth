@@ -52,7 +52,7 @@ class Paddle < GameObject
     @direction = 0; # moving up (1), down (-1), or none (0)
     @top_speed = 30
 
-    before_update do |tick|
+    before_update( :name => "move" ) do |tick|
       self.position += v(0,1) * top_speed * direction * tick.seconds
 
       if self.position.y > @@max_y
@@ -68,21 +68,26 @@ class Paddle < GameObject
 
 
   def bind_keys( up, down )
-    when_key_pressed( up ) do
+    when_key_pressed( :key => up, :name => "+up" ) do
       self.direction += 1
     end
 
-    when_key_released( up ) do
+    when_key_released( :key => up, :name => "-up" ) do
       self.direction -= 1
     end
 
-    when_key_pressed( down ) do
+    when_key_pressed( :key => down, :name => "+down" ) do
       self.direction -= 1
     end
 
-    when_key_released( down ) do
+    when_key_released( :key => down, :name => "-down" ) do
       self.direction += 1
     end
+  end
+
+
+  def clear_keys
+    clear_hooks "+up", "-up", "+down", "-down"
   end
 
 end
