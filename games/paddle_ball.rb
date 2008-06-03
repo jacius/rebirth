@@ -106,3 +106,27 @@ class Paddle < GameObject
   end
 
 end
+
+
+
+class Ball < GameObject
+
+  def initialize( params={} )
+    base_params = { 
+      :color   => :red,
+      :radius  => 10.0,
+    }
+    
+    add_shape Circle.new( base_params.merge(params) )
+
+    @base_speed = 30
+  end
+
+  
+  def register_paddle( paddle )
+    when_collided( :with => paddle ) do |collision|
+      self.velocity *= 1.05
+    end
+  end
+
+end
