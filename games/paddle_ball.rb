@@ -150,18 +150,18 @@ def setup
   $game = Game.new
 
   # Initialize scores
-  $game[:scores] = { :left => 0, :right => 0 }
+  $game["scores"] = { "left" => 0, "right" => 0 }
 
   # Make the walls
-  $game.add( :top_wall    => Wall.new(v(-400, 240), v( 400, 240)),
-             :bottom_wall => Wall.new(v(-400,-240), v( 400,-240)),
-             :left_wall   => Wall.new(v(-400, 240), v(-400,-240)),
-             :right_wall  => Wall.new(v( 400, 240), v( 400,-240)))
+  $game.add( "top_wall"    => Wall.new(v(-400, 240), v( 400, 240)),
+             "bottom_wall" => Wall.new(v(-400,-240), v( 400,-240)),
+             "left_wall"   => Wall.new(v(-400, 240), v(-400,-240)),
+             "right_wall"  => Wall.new(v( 400, 240), v( 400,-240)))
 
-  [:left, :right].each do |side|
-    $game["#{side}_wall".intern].when_collide( :with => Ball ) do
-      $game[:scores][side] += 1
-      $game[:ball].die
+  ["left," "right"].each do |side|
+    $game["#{side}_wall"].when_collide( :with => Ball ) do
+      $game["scores"][side] += 1
+      $game["ball"].die
     end
   end
 end
