@@ -149,3 +149,25 @@ class Wall < GameObject
     add_shape Line.new( base_params.merge(:points => [p1,p2]) )
   end
 end
+
+
+
+def setup
+  $game = Game.new
+
+  # Initialize scores
+  $game[:scores] = { :left => 0, :right => 0 }
+
+  # Make the walls
+  $game.add( :top_wall    => Wall.new(v(-400, 240), v( 400, 240)),
+             :bottom_wall => Wall.new(v(-400,-240), v( 400,-240)),
+             :left_wall   => Wall.new(v(-400, 240), v(-400,-240)),
+             :right_wall  => Wall.new(v( 400, 240), v( 400,-240)))
+
+  [:left, :right].each do |side|
+    $game["#{side}_wall".intern].when_collide( :with => Ball ) do
+      $game[:scores][side] += 1
+      $game[:ball].die
+    end
+  end
+end
