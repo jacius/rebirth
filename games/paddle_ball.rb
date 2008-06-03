@@ -16,7 +16,6 @@ DEMONSTRATES:
   * AI-controlled game objects
   * Collision detection
   * Rectangle shape
-  * Non-physics-driven movement
   
 
 CURRENT STATUS:
@@ -53,15 +52,7 @@ class Paddle < GameObject
     @top_speed = 30
 
     before_update( :name => "move" ) do |tick|
-      self.position += v(0,1) * top_speed * direction * tick.seconds
-
-      if self.position.y > @@max_y
-        self.position = v(self.position.x, @@max_y)
-      end
-
-      if self.position.y < @@min_y
-        self.position = v(self.position.x, @@min_y)
-      end
+      self.velocity = v(0,1) * top_speed * direction
     end
 
   end
