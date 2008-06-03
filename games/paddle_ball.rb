@@ -29,7 +29,11 @@ AUTHOR:
 
 =end
 
+
+
 VERY_MASSIVE = 10**15
+
+
 
 class Paddle < GameObject
 
