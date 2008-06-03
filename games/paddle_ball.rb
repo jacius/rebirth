@@ -33,7 +33,7 @@ AUTHOR:
 
 class Paddle < GameObject
 
-  attr_accessor :direction, :top_speed
+  attr_accessor :direction, :top_speed, :clamp_x
 
   @@max_y =  300
   @@min_y = -300
@@ -50,9 +50,17 @@ class Paddle < GameObject
 
     @direction = 0; # moving up (1), down (-1), or none (0)
     @top_speed = 30
+    @clamp_x = nil;
 
     before_update( :name => "move" ) do |tick|
       self.velocity = v(0,1) * top_speed * direction
+    end
+
+    after_update( :name => "clamp x" ) do
+      if @clamp_x
+        self.position.x = @clamp_x 
+        self.velocity.x = 0
+      end
     end
 
   end
