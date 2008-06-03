@@ -130,3 +130,18 @@ class Ball < GameObject
   end
 
 end
+
+
+
+class Wall < GameObject
+  def initialize( p1, p2 )
+    base_params = { 
+      :color     => :white,
+      :thickness => 3.0,
+      :static    => true,
+      :elast     => 1.0
+    }    
+  
+    add_shape Line.new( base_params.merge(:points => [p1,p2]) )
+  end
+end
