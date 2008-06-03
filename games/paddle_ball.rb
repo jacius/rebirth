@@ -35,9 +35,6 @@ class Paddle < GameObject
 
   attr_accessor :direction, :top_speed, :clamp_x
 
-  @@max_y =  300
-  @@min_y = -300
-
 
   def initialize( params = {} )
     base_params = { 
