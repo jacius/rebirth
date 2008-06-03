@@ -1,0 +1,31 @@
+
+  I'm trying to codify the goals that I want to accomplish with
+  Rebirth. This mostly encompasses guiding design principles,
+  priorities, etc.
+  
+  In rough order by priority, descending:
+
+    1. Ease of use. It should be natural to express game behavior,
+       without needing to jump through hoops. Use of defaults and
+       constraints to suggest a course of action and reduce the
+       "burden of choice" on developers.
+  
+    2. Flexibility. Rebirth should be able to handle games of many
+       types and genres; physics or non-physics, action or slow-paced.
+  
+    3. Object-oriented. It should focus on game objects and how they
+       behave and interact, not on the mechanics of image blitting
+       and event management.
+
+    4. Examples. Plenty of running example games to help users get
+       started and see how the library can / should be used.
+
+    5. Documentation. Every module, every class, every method
+       documented, plus tutorials with examples about various important
+       concepts and features.
+
+    6. Behavior-driven development. Spec first, then implement.
+       Full spec coverage, master branch is always green.
+
+    7. Small, incremental releases. Every feature should be a release,
+       every release should add or refine a feature. Avoid build-ups.
