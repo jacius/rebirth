@@ -127,6 +127,16 @@ class Ball < GameObject
     @base_speed = 30
   end
 
+
+  def start( direction )
+    self.velocity =
+      case direction
+      when "left"
+        v(1,1).magnitude(-@base_speed)
+      when "right"
+        v(1,1).magnitude( @base_speed)
+      end
+  end
 end
 
 
