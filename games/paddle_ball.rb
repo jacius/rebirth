@@ -16,7 +16,6 @@ DEMONSTRATES:
   * AI-controlled game objects
   * Collision detection
   * Rectangle shape
-  * Non-physics-driven movement
   
 
 CURRENT STATUS:
@@ -32,35 +31,38 @@ AUTHOR:
 
 
 
+VERY_MASSIVE = 10**15
+
+
+
 class Paddle < GameObject
 
-  attr_accessor :direction, :top_speed
-
-  @@max_y =  300
-  @@min_y = -300
+  attr_accessor :direction, :top_speed, :clamp_x
 
 
   def initialize( params = {} )
     base_params = { 
       :color   => :white,
       :size    => [16,64],
-      :static  => true,
+      :mass    => VERY_MASSIVE,
+      :elast   => 1.10,
+      :gravity => false
     }
 
     add_shape Rectangle.new( base_params.merge(params) )
 
     @direction = 0; # moving up (1), down (-1), or none (0)
     @top_speed = 30
+    @clamp_x = nil;
 
     before_update( :name => "move" ) do |tick|
-      self.position += v(0,1) * top_speed * direction * tick.seconds
+      self.velocity = v(0,1) * top_speed * direction
+    end
 
-      if self.position.y > @@max_y
-        self.position = v(self.position.x, @@max_y)
-      end
-
-      if self.position.y < @@min_y
-        self.position = v(self.position.x, @@min_y)
+    after_update( :name => "clamp x" ) do
+      if @clamp_x
+        self.position.x = @clamp_x 
+        self.velocity.x = 0
       end
     end
 
@@ -90,4 +92,86 @@ class Paddle < GameObject
     clear_hooks "+up", "-up", "+down", "-down"
   end
 
+
+  def ai_track_ball( ball )
+    @ball = ball
+    @fuzz = 10
+
+    before_update( :name => "tracking", :priority => 10 ) do
+      diff = @ball.y - self.y
+
+      if diff > @fuzz
+        self.direction = 1
+      elsif diff < -@fuzz
+        self.direction = 1
+      else
+        self.direction = 0
+      end
+    end
+  end
+
+end
+
+
+
+class Ball < GameObject
+
+  def initialize( params={} )
+    base_params = { 
+      :color   => :red,
+      :radius  => 10.0,
+    }
+    
+    add_shape Circle.new( base_params.merge(params) )
+
+    @base_speed = 30
+  end
+
+
+  def start( direction )
+    self.velocity =
+      case direction
+      when "left"
+        v(1,1).magnitude(-@base_speed)
+      when "right"
+        v(1,1).magnitude( @base_speed)
+      end
+  end
+end
+
+
+
+class Wall < GameObject
+  def initialize( p1, p2 )
+    base_params = { 
+      :color     => :white,
+      :thickness => 3.0,
+      :static    => true,
+      :elast     => 1.0
+    }    
+  
+    add_shape Line.new( base_params.merge(:points => [p1,p2]) )
+  end
+end
+
+
+
+def setup
+  $game = Game.new
+
+  # Initialize scores
+  $game["scores"] = { "left" => 0, "right" => 0 }
+
+  # Make the walls
+  $game.add( "top_wall"    => Wall.new(v(-400, 240), v( 400, 240)),
+             "bottom_wall" => Wall.new(v(-400,-240), v( 400,-240)),
+             "left_wall"   => Wall.new(v(-400, 240), v(-400,-240)),
+             "right_wall"  => Wall.new(v( 400, 240), v( 400,-240)))
+
+  ["left," "right"].each do |side|
+    $game["#{side}_wall"].when_collide( :with => Ball ) do
+      $game["scores"][side] += 1
+      $game["ball"].die
+    end
+  end
 end
