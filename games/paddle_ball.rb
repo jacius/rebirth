@@ -29,7 +29,7 @@ AUTHOR:
 
 =end
 
-
+VERY_MASSIVE = 10**15
 
 class Paddle < GameObject
 
@@ -43,7 +43,8 @@ class Paddle < GameObject
     base_params = { 
       :color   => :white,
       :size    => [16,64],
-      :static  => true,
+      :mass    => VERY_MASSIVE,
+      :gravity => false
     }
 
     add_shape Rectangle.new( base_params.merge(params) )
