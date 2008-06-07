@@ -1,5 +1,5 @@
 
-describe "shape" do
+describe "a shape", :shared => true do
   
   it "should take a :name option"
   it "should have no name by default"
@@ -32,24 +32,31 @@ describe "shape" do
   it "should have a :friction option"
   it "should have a friction of 1.0 by default"
 
-
-  describe "(circle)" do
-    
-    it "should take a :radius option"
-    it "should have a radius of 1.0 by default"
-
-    it "should calculate mass from area if mass not given"
-
-  end
+end
 
 
-  describe "(rectangle)" do
-    
-    it "should take a :size option"
-    it "should have a size of v(1,1) by default"
 
-    it "should calculate mass from area if mass not given"
+describe "Circle" do
+  
+  it_should_behave_like "a shape"
 
-  end
+  it "should take a :radius option"
+  it "should have a radius of 1.0 by default"
+
+  it "should calculate mass from area if mass not given"
 
 end
+
+
+
+describe "Rectangle" do
+  
+  it_should_behave_like "a shape"
+
+  it "should take a :size option"
+  it "should have a size of v(1,1) by default"
+
+  it "should calculate mass from area if mass not given"
+
+end
+
