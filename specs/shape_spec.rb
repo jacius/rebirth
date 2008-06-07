@@ -64,7 +64,7 @@ end
 
 describe "Polygon" do
 
-  it_should_behave_like "Shape (shared)"
+  it_should_behave_like "a shape"
 
   it "should take a :verts option"
   it "should raise error if verts are not given"
