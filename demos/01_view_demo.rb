@@ -9,6 +9,7 @@
 #
 
 require 'rebirth'
+include Rebirth
 
 View.open([640,480])
 
