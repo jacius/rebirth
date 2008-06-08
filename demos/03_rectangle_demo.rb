@@ -25,7 +25,7 @@ rect.append_hook(:trigger => InstanceOfTrigger.new(DrawEvent),
                  :action  => BlockAction.new { rect.draw(view) } )
 
 # Register to receive TickEvents from the event manager.
-evm.register_listener( rect, TickEvent )
+evm.register_listener( rect, DrawEvent )
 
 catch :quit do
   loop do
