@@ -1,0 +1,63 @@
+
+
+  ROADMAP
+  
+  
+  (View)
+
+    - Demo: Empty view, nothing displayed. Quits after 10 seconds.
+
+    - View class
+
+  
+  (Keyboard events)
+  
+    - Demo: Same as above, but quits when Q key pressed and released.
+  
+    - KeyPressed event class
+    - KeyReleased event class
+    - EventManager class
+  
+  
+  (Rectangle)
+  
+    - Demo: Same, but displays a solid white square.
+
+    - Shape class
+    - Rectangle class
+
+  
+  (Game Object)
+  
+    - Demo: Same. (Nonvisible changes only.)
+  
+    - GameObject class
+
+  
+  (Circle)
+  
+    - Demo: Same, but also displays a solid white circle.
+  
+    - Circle class
+
+  
+  (Color)
+
+    - Demo: Same, but each shape is a different color.
+
+    - Color classes
+    - Shape style (solid)
+
+  
+  (Line)
+  
+    - Demo: Same, but also displays a colored line.
+  
+    - Line class
+    - Shape style (line)
+  
+  (World)
+  
+    - Demo: Same. (Nonvisible changes only.)
+  
+    - World class.
