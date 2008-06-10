@@ -1,6 +1,6 @@
 
-# Load local files, not installed.
-$: << File.join( File.dirname(__FILE__), "..", "lib" )
+# Prefer local library over installed version.
+$:.unshift( File.join( File.dirname(__FILE__), "..", "lib" ) )
 
 require 'rebirth'
 include Rebirth
