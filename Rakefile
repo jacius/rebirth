@@ -4,6 +4,10 @@ REBIRTH_VERSION = [0,0,0]
 
 require 'rake'
 
+task :version do 
+  puts "Rebirth v#{REBIRTH_VERSION.join(".")}"
+end
+
 begin
   require 'spec/rake/spectask'
 
