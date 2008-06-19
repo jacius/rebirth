@@ -13,7 +13,7 @@ begin
 
   desc "Run all specs (tests)"
   Spec::Rake::SpecTask.new do |t|
-    t.spec_files = FileList['specs/*_spec.rb']
+    t.spec_files = FileList['spec/*_spec.rb']
   end
 rescue LoadError
   task :spec do 
