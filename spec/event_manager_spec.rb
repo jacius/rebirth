@@ -22,4 +22,12 @@ describe EventManager do
     @evm = EventManager.instance
   end
 
+  it "should be a singleton class" do
+    @evm.should be_kind_of(Singleton)
+  end
+
+  it "should accept pushed events" do
+    lambda { @evm.push(:myevent) }.should_not raise_error
+  end
+
 end
