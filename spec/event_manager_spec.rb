@@ -7,6 +7,9 @@ include Rebirth
 
 HasEventHandler = Rubygame::EventHandler::HasEventHandler
 
+include Rubygame::EventTriggers
+include Rubygame::EventActions
+
 
 # Monkeypatch to allow resetting EventManager.
 class EventManager
@@ -34,6 +37,13 @@ describe EventManager do
 
   it "should have event handler" do
     @evm.should be_kind_of(HasEventHandler)
+  end
+
+  it "should handle queued events on update" do
+    @evm.make_magic_hooks( YesTrigger.new => proc{ throw :handled } )
+    @evm.push(:myevent)
+
+    lambda { @evm.update }.should throw_symbol(:handled)
   end
 
 end
