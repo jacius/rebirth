@@ -25,7 +25,8 @@ dir = File.dirname(__FILE__)
 
 %w{ 
 
-  view 
+  view
+  event_manager
 
 }.each { |f|
   require File.join(dir, 'rebirth', "%s.rb"%f)
