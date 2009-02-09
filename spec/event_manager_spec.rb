@@ -5,6 +5,8 @@ $:.unshift( File.join( File.dirname(__FILE__), "..", "lib" ) )
 require 'rebirth'
 include Rebirth
 
+HasEventHandler = Rubygame::EventHandler::HasEventHandler
+
 
 # Monkeypatch to allow resetting EventManager.
 class EventManager
@@ -28,6 +30,10 @@ describe EventManager do
 
   it "should accept pushed events" do
     lambda { @evm.push(:myevent) }.should_not raise_error
+  end
+
+  it "should have event handler" do
+    @evm.should be_kind_of(HasEventHandler)
   end
 
 end
