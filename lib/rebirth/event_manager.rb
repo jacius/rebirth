@@ -23,6 +23,7 @@
 
 require 'rubygame'
 require 'singleton'
+require 'rebirth/event_handler'
 
 
 module Rebirth
@@ -40,7 +41,7 @@ module Rebirth
 
     include Singleton
 
-    include Rubygame::EventHandler::HasEventHandler
+    include Rebirth::HasEventHandler
     private :handle
 
 
