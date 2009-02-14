@@ -20,8 +20,10 @@
 # 
 #++
 
+require "rubygame"
 
-module Rubygame::EventHandler::HasEventHandler
+module Rebirth::HasEventHandler
+  include Rubygame::EventHandler::HasEventHandler
 
   # Like #make_magic_hooks, but with an owner other than self.
   def make_magic_hooks_for( owner, hooks={} )
