@@ -32,4 +32,8 @@ module Rubygame::EventHandler::HasEventHandler
     end
   end
 
+  # Aliases for convenience
+  alias :make_hooks :make_magic_hooks
+  alias :make_hooks_for :make_magic_hooks_for
+
 end
