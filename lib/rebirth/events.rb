@@ -3,7 +3,7 @@
 #  This file is one part of:
 #
 #  Rebirth - Game development library for Ruby
-#  Copyright (C) 2008  John Croisant
+#  Copyright (C) 2008, 2009  John Croisant
 #
 #  This library is free software; you can redistribute it and/or
 #  modify it under the terms of the GNU Lesser General Public
@@ -21,14 +21,10 @@
 #++
 
 
-dir = File.dirname(__FILE__)
+module Rebirth
 
-%w{ 
+  # DrawEvent signals that objects should draw themselves.
+  class DrawEvent
+  end
 
-  view
-  event_manager
-  events
-
-}.each { |f|
-  require File.join(dir, 'rebirth', "%s.rb"%f)
-}
+end
