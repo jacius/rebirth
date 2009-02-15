@@ -25,10 +25,10 @@ class Rebirth::Shape
   attr_reader :pos, :rot, :depth
 
   def initialize( options={} )
-    @pos     = options[:pos]   or [0,0]
-    @rot     = options[:rot]   or 0
-    @depth   = options[:depth] or 0
-    @visible = options.has_key?(:visible) ? options[:visible] : true
+    @pos     = (options[:pos]   or [0,0])
+    @rot     = (options[:rot]   or 0)
+    @depth   = (options[:depth] or 0)
+    @visible = (options.has_key?(:visible) ? options[:visible] : true)
   end
 
   # Draw the shape. Overridden by subclasses.
