@@ -12,6 +12,7 @@ describe Shape do
     @shape = Shape.new
   end
 
+
   describe "(default)" do
     
     it "position should be [0,0]" do
@@ -32,6 +33,7 @@ describe Shape do
 
   end
 
+
   it "should have a position" do
     @shape = Shape.new( :pos => [1,2] )
     @shape.pos.should == [1,2]
@@ -51,6 +53,7 @@ describe Shape do
     @shape = Shape.new( :visible => false )
     @shape.should_not be_visible
   end
+
 
   it "should have a draw method" do
     @shape.should respond_to(:draw)
