@@ -35,3 +35,5 @@ dir = File.dirname(__FILE__)
 }.each { |f|
   require File.join(dir, 'rebirth', "%s.rb"%f)
 }
+
+require 'opengl'
