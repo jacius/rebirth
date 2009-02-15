@@ -25,19 +25,12 @@ require 'rebirth/shape'
 
 class Rebirth::Rectangle < Rebirth::Shape
 
-  attr_reader :size
-
-  def initialize( options={} )
-    @size = (options[:size] or [1,1])
-    super
-  end
-
   def draw
     glPushMatrix()
 
     glTranslate( @pos[0], @pos[1], 0 )
     glRotate(@rot * (180/Math::PI), 0, 0, 1)
-    glScale(@size[0], @size[1], 1)
+    glScale(@scale[0], @scale[1], 1)
 
     glBegin(GL_TRIANGLE_FAN)
     glColor(1,1,1,1)
