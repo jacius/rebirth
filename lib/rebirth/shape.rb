@@ -25,8 +25,8 @@ class Rebirth::Shape
   attr_reader :pos, :rot, :depth
 
   def initialize( options={} )
-    @pos = options[:pos]
-    @rot = options[:rot]
+    @pos = options[:pos] or [0,0]
+    @rot = options[:rot] or 0
     @depth = options[:depth] or 0 
   end
 
