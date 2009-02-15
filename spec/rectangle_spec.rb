@@ -12,4 +12,8 @@ describe Rectangle do
     @rect = Rectangle.new
   end
 
+  it "should be a Shape" do
+    @rect.should be_kind_of( Shape )
+  end
+
 end
