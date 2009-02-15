@@ -17,4 +17,9 @@ describe Shape do
     @shape.pos.should == [1,2]
   end
 
+  it "should have a rotation" do
+    @shape = Shape.new( :rot => 1 )
+    @shape.rot.should == 1
+  end
+
 end
