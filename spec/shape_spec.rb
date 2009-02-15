@@ -12,4 +12,9 @@ describe Shape do
     @shape = Shape.new
   end
 
+  it "should have a position" do
+    @shape = Shape.new( :pos => [1,2] )
+    @shape.pos.should == [1,2]
+  end
+
 end
