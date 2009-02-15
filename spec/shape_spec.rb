@@ -22,6 +22,10 @@ describe Shape do
       @shape.rot.should == 0
     end
 
+    it "depth should be 0" do
+      @shape.depth.should == 0
+    end
+
   end
 
   it "should have a position" do
