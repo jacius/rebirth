@@ -25,4 +25,10 @@ describe Rectangle do
 
   end
 
+
+  it "should have a size" do
+    @rect = Rectangle.new( :size => [1,2] )
+    @rect.size.should == [1,2]
+  end
+
 end
