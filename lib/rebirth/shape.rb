@@ -20,10 +20,29 @@
 # 
 #++
 
+# Shape is the base class for all shapes in Rebirth.
+# 
 class Rebirth::Shape
 
   attr_reader :pos, :rot, :depth
 
+  # Create a new Shape with certain options:
+  # 
+  # :pos::     The position of the shape's center, relative to
+  #            its parent (either a sprite or the world).
+  #            Default: [0,0].
+  # 
+  # :rot::     The rotation (angle) of the shape, in radians.
+  #            Rotation increases counter-clockwise.
+  #            Default: 0.
+  # 
+  # :depth::   The depth of the shape. Shapes with high depths
+  #            appear behind shapes with low depths.
+  #            Default: 0.
+  # 
+  # :visible:: If false, the shape is not drawn.
+  #            Default: true.
+  # 
   def initialize( options={} )
     @pos     = (options[:pos]   or [0,0])
     @rot     = (options[:rot]   or 0)
