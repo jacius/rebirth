@@ -24,7 +24,7 @@
 # 
 class Rebirth::Shape
 
-  attr_reader :pos, :rot, :depth
+  attr_reader :pos, :rot, :scale, :depth
 
   # Create a new Shape with certain options:
   # 
@@ -36,6 +36,11 @@ class Rebirth::Shape
   #            Rotation increases counter-clockwise.
   #            Default: 0.
   # 
+  # :scale::   The x and y scale factors of the shape.
+  #            scale < 1 shrinks, scale > 1 grows.
+  #            Default: [1,1]
+  # 
+  # 
   # :depth::   The depth of the shape. Shapes with high depths
   #            appear behind shapes with low depths.
   #            Default: 0.
@@ -46,6 +51,7 @@ class Rebirth::Shape
   def initialize( options={} )
     @pos     = (options[:pos]   or [0,0])
     @rot     = (options[:rot]   or 0)
+    @scale   = (options[:scale] or [1,1])
     @depth   = (options[:depth] or 0)
     @visible = (options.has_key?(:visible) ? options[:visible] : true)
   end
