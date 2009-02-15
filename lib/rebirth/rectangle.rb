@@ -36,6 +36,7 @@ class Rebirth::Rectangle < Rebirth::Shape
     glPushMatrix()
 
     glTranslate( @pos[0], @pos[1], 0 )
+    glRotate(@rot * (180/Math::PI), 0, 0, 1)
     glScale(@size[0], @size[1], 1)
 
     glBegin(GL_TRIANGLE_FAN)
