@@ -33,23 +33,26 @@ class Rebirth::Rectangle < Rebirth::Shape
   end
 
   def draw
-    glPushMatrix() do
+    glPushMatrix()
 
-      glTranslate( -@pos[0], -@pos[1], 0 )
-      glScale(@size[0], @size[1], 1)
+    glTranslate( @pos[0], @pos[1], 0 )
+    glScale(@size[0], @size[1], 1)
 
-      glBegin(GL_TRIANGLE_FAN) do
-        verts = [[ 0.0, 0.0],
-                 [-0.5, 0.5],
-                 [-0.5,-0.5],
-                 [ 0.5,-0.5],
-                 [ 0.5, 0.5],
-                 [-0.5, 0.5]]
+    glBegin(GL_TRIANGLE_FAN)
+    glColor(1,1,1,1)
 
-        verts.each { |vert|  glVertex( vert+[@depth] ) }
-      end
+    verts = [[ 0.0, 0.0],
+             [-0.5, 0.5],
+             [-0.5,-0.5],
+             [ 0.5,-0.5],
+             [ 0.5, 0.5],
+             [-0.5, 0.5]]
 
-    end
+    verts.each { |vert|  glVertex( vert+[@depth] ) }
+
+    glEnd()
+
+    glPopMatrix()
   end
 
 
