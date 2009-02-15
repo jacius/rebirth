@@ -25,4 +25,11 @@ require 'rebirth/shape'
 
 class Rebirth::Rectangle < Rebirth::Shape
 
+  attr_reader :size
+
+  def initialize( options={} )
+    @size = (options[:size] or [1,1])
+    super
+  end
+
 end
