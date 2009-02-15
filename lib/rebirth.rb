@@ -26,8 +26,11 @@ dir = File.dirname(__FILE__)
 %w{ 
 
   view
+  event_handler
   event_manager
   events
+  shape
+  rectangle
 
 }.each { |f|
   require File.join(dir, 'rebirth', "%s.rb"%f)
