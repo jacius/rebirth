@@ -27,6 +27,11 @@ describe Shape do
     @shape.depth.should == 1
   end
 
+  it "should have visibility" do
+    @shape = Shape.new( :visible => false )
+    @shape.should_not be_visible
+  end
+
   it "should have a draw method" do
     @shape.should respond_to(:draw)
   end
