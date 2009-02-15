@@ -22,11 +22,12 @@
 
 class Rebirth::Shape
 
-  attr_reader :pos, :rot
+  attr_reader :pos, :rot, :depth
 
   def initialize( options={} )
     @pos = options[:pos]
     @rot = options[:rot]
+    @depth = options[:depth] or 0 
   end
 
   # Draw the shape. Overridden by subclasses.
