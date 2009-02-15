@@ -16,4 +16,13 @@ describe Rectangle do
     @rect.should be_kind_of( Shape )
   end
 
+
+  describe "(default)" do
+    
+    it "size should be [1,1]" do
+      @rect.size.should == [1,1]
+    end
+
+  end
+
 end
