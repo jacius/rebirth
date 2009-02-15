@@ -40,6 +40,37 @@ include Rubygame::EventTriggers
 include Rubygame::EventActions
 
 
+# A temp class until the real camera is implemented.
+class BasicCamera
+  def initialize
+    setup_gl
+    setup_projection
+  end
+
+  def pre_draw
+    glClear(GL_COLOR_BUFFER_BIT)
+    glLoadIdentity()
+  end
+
+  def post_draw
+    glFlush()
+    Rubygame::GL.swap_buffers
+  end
+
+  def setup_gl
+    glClearColor(0.2,0,0.2,1)
+    glClearDepth(100)
+  end
+
+  def setup_projection
+		glMatrixMode( GL_PROJECTION )
+		glLoadIdentity()
+		glOrtho(0, 640, 0, 480, -100, 100)
+    glMatrixMode( GL_MODELVIEW )
+  end
+
+end
+
 View.open([640,480])
 
 evm = EventManager.instance
@@ -47,13 +78,22 @@ evm.make_magic_hooks( :q => Proc.new { throw :quit } )
 
 puts "Press Q to exit."
 
-rect = Rectangle.new( :size => [128,256] )
 
-# Draw when DrawEvent received.
-# rect.make_magic_hooks( DrawEvent => :draw )
+# Create Camera and register to receive DrawEvents
+camera = BasicCamera.new
+evm.make_magic_hooks_for( camera, { DrawEvent => :pre_draw } )
 
-# Register to receive DrawEvents from the event manager.
+
+# Create Rectangle and register to receive DrawEvents
+rect = Rectangle.new( :pos  => [320,240],
+                      :rot  => 0.2,
+                      :size => [128,64] )
 evm.make_magic_hooks_for( rect, { DrawEvent => :draw } )
+
+
+# Another hook, this time for after everything is drawn
+evm.make_magic_hooks_for( camera, { DrawEvent => :post_draw } )
+
 
 draw_event = DrawEvent.new
 
