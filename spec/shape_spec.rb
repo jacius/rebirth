@@ -22,6 +22,11 @@ describe Shape do
     @shape.rot.should == 1
   end
 
+  it "should have a depth" do
+    @shape = Shape.new( :depth => 1 )
+    @shape.depth.should == 1
+  end
+
   it "should have a draw method" do
     @shape.should respond_to(:draw)
   end
