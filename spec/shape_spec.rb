@@ -22,4 +22,8 @@ describe Shape do
     @shape.rot.should == 1
   end
 
+  it "should have a draw method" do
+    @shape.should respond_to(:draw)
+  end
+
 end
