@@ -26,6 +26,10 @@ describe Shape do
       @shape.depth.should == 0
     end
 
+    it "should be visible" do
+      @shape.should be_visible
+    end
+
   end
 
   it "should have a position" do
