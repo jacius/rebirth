@@ -28,10 +28,15 @@ class Rebirth::Shape
     @pos = options[:pos] or [0,0]
     @rot = options[:rot] or 0
     @depth = options[:depth] or 0 
+    @visible = options.has_key?(:visible) ? options[:visible] : true
   end
 
   # Draw the shape. Overridden by subclasses.
   def draw
+  end
+
+  def visible?
+    @visible
   end
 
 end
