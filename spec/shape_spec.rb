@@ -18,6 +18,10 @@ describe Shape do
       @shape.pos.should == [0,0]
     end
 
+    it "rotation should be 0" do
+      @shape.rot.should == 0
+    end
+
   end
 
   it "should have a position" do
