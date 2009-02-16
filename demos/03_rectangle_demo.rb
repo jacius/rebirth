@@ -85,9 +85,9 @@ evm.make_magic_hooks_for( camera, { DrawEvent => :pre_draw } )
 
 
 # Create Rectangle and register to receive DrawEvents
-rect = Rectangle.new( :pos  => [320,240],
-                      :rot  => 0.2,
-                      :size => [128,64] )
+rect = Rectangle.new( :pos   => [320,240],
+                      :rot   => 0.2,
+                      :scale => [128,64] )
 evm.make_magic_hooks_for( rect, { DrawEvent => :draw } )
 
 
