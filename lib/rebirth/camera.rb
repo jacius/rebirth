@@ -32,6 +32,11 @@ class Rebirth::Camera
     @@active_camera
   end
 
+  def self.clear_active_camera
+    @@active_camera = nil
+  end
+
+
   def initialize( options={} )
     @pos     = (options[:pos]   or [0,0])
     @rot     = (options[:rot]   or 0)
