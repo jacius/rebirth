@@ -62,11 +62,19 @@ describe Camera do
       View.close
     end
 
+    it "should be the active camera" do
+      Camera.active_camera.should == @camera
+    end
+
   end
 
 
   describe "(no active camera)" do
 
+    before :each do
+      Camera.clear_active_camera
+    end
+    
     it "active camera should be nil" do
       Camera.active_camera.should be_nil
     end
