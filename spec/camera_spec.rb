@@ -127,5 +127,9 @@ describe Camera do
     @camera.should respond_to(:pre_draw)
   end
 
+  it "should have a post_draw method" do
+    @camera.should respond_to(:post_draw)
+  end
+
 
 end
