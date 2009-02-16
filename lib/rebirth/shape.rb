@@ -56,12 +56,38 @@ class Rebirth::Shape
     @visible = (options.has_key?(:visible) ? options[:visible] : true)
   end
 
-  # Draw the shape. Overridden by subclasses.
+
+  # Draw the shape on the screen.
+  # 
+  # This method handles OpenGL transformation, and delegates
+  # to the #_draw method to perform the actual drawing in local
+  # space.
   def draw
+    glPushMatrix()
+
+    glTranslate( @pos[0], @pos[1], 0 )
+    glRotate(@rot * (180/Math::PI), 0, 0, 1)
+    glScale(@scale[0], @scale[1], 1)
+
+    _draw()
+
+    glPopMatrix()
   end
 
   def visible?
     @visible
+  end
+
+  private
+
+  # Called by #draw to perform the OpenGL calls to
+  # actually draw the shape. Overridden by subclasses.
+  # 
+  # The #draw method handles translation, rotation, and
+  # scaling according to @pos, @rot, and @scale, so #_draw
+  # should draw in "local space".
+  # 
+  def _draw
   end
 
 end

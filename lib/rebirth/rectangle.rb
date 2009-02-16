@@ -25,14 +25,10 @@ require 'rebirth/shape'
 
 class Rebirth::Rectangle < Rebirth::Shape
 
-  def draw
-    glPushMatrix()
-
-    glTranslate( @pos[0], @pos[1], 0 )
-    glRotate(@rot * (180/Math::PI), 0, 0, 1)
-    glScale(@scale[0], @scale[1], 1)
-
+  # OpenGL calls to draw the Rectangle
+  def _draw
     glBegin(GL_TRIANGLE_FAN)
+
     glColor(1,1,1,1)
 
     verts = [[ 0.0, 0.0],
@@ -45,8 +41,6 @@ class Rebirth::Rectangle < Rebirth::Shape
     verts.each { |vert|  glVertex( vert+[@depth] ) }
 
     glEnd()
-
-    glPopMatrix()
   end
 
 
