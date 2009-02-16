@@ -47,6 +47,9 @@ class Rebirth::Camera
 
   def make_active
     @@active_camera = self
+    _setup_viewport
+    _setup_rendering
+    _setup_projection
   end
 
   def reset_from_view
@@ -56,5 +59,35 @@ class Rebirth::Camera
       @viewport = [0,0,0,0]
     end
   end
+
+
+  private
+
+  def _setup_projection
+		glMatrixMode( GL_PROJECTION )
+		glLoadIdentity()
+
+    w,h = @viewport.at(2), @viewport.at(3)
+
+    # Scene will be translated at render time.
+		glOrtho(-w, w, -h, h, 0, 1000)
+
+    glMatrixMode( GL_MODELVIEW )
+		glLoadIdentity()
+  end
+
+  def _setup_rendering
+		glEnable(GL_DEPTH_TEST)
+		glDepthFunc(GL_LESS)
+    glClearDepth(100)
+
+		glEnable(GL_SCISSOR_TEST)
+  end
+
+  def _setup_viewport
+		glViewport( *@viewport )
+		glScissor( *@viewport )
+  end
+  
 
 end
