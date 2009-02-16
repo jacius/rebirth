@@ -6,14 +6,14 @@ require 'rebirth'
 include Rebirth
 
 
-describe Rectangle do
+describe Box do
 
   before :each do
-    @rect = Rectangle.new
+    @box = Box.new
   end
 
   it "should be a Shape" do
-    @rect.should be_kind_of( Shape )
+    @box.should be_kind_of( Shape )
   end
 
 end

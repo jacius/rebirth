@@ -23,9 +23,9 @@
 require 'rebirth/shape'
 
 
-class Rebirth::Rectangle < Rebirth::Shape
+class Rebirth::Box < Rebirth::Shape
 
-  # OpenGL calls to draw the Rectangle
+  # OpenGL calls to draw the Box
   def _draw
     glBegin(GL_TRIANGLE_FAN)
 

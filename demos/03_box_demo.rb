@@ -2,9 +2,9 @@
 
 #
 #
-#  DEMO: Rectangle
+#  DEMO: Box
 #
-#  DESC: Displays a solid white rectangle. Quits when Q key pressed.
+#  DESC: Displays a solid white box. Quits when Q key pressed.
 #
 #  DATE: 2008-06-08
 #
@@ -84,11 +84,11 @@ camera = BasicCamera.new
 evm.make_magic_hooks_for( camera, { DrawEvent => :pre_draw } )
 
 
-# Create Rectangle and register to receive DrawEvents
-rect = Rectangle.new( :pos   => [320,240],
-                      :rot   => 15,
-                      :scale => [128,64] )
-evm.make_magic_hooks_for( rect, { DrawEvent => :draw } )
+# Create Box and register to receive DrawEvents
+box = Box.new( :pos   => [320,240],
+               :rot   => 15,
+               :scale => [128,64] )
+evm.make_magic_hooks_for( box, { DrawEvent => :draw } )
 
 
 # Another hook, this time for after everything is drawn
