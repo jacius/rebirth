@@ -42,6 +42,8 @@ class Rebirth::Camera
     @rot     = (options[:rot]   or 0)
     @scale   = (options[:scale] or [1,1])
     @viewport = (options[:viewport] or reset_from_view)
+    
+    make_active
   end
 
 
