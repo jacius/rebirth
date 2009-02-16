@@ -60,19 +60,38 @@ describe Camera do
   end
 
 
+  describe "(no active camera)" do
+    
+    it "active camera should be nil" do
+      Camera.active_camera.should be_nil
+    end
+
+    it "should be able to be made active" do
+      @camera.make_active
+      Camera.active_camera.should == @camera
+    end
+
+  end
+
+
   describe "(active camera)" do
     
     after :each do 
       Camera.clear_active_camera
     end
 
-    it "should be able to be made active" do
-      lambda{ @camera.make_active }.should_not raise_error
-    end
-
-    it "class should tell which camera is active" do
+    it "active camera should be the active camera" do
       @camera.make_active
       Camera.active_camera.should == @camera
+    end
+
+    it "should be able to change active camera" do
+      @camera.make_active
+
+      @camera2 = Camera.new
+      @camera2.make_active
+
+      Camera.active_camera.should == @camera2
     end
 
     it "class should be able to clear active camera" do
