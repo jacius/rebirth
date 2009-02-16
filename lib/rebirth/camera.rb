@@ -23,4 +23,10 @@
 
 class Rebirth::Camera
 
+  attr_reader :pos
+
+  def initialize( options={} )
+    @pos     = (options[:pos]   or [0,0])
+  end
+
 end
