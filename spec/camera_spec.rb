@@ -17,4 +17,9 @@ describe Camera do
     @camera.pos.should == [1,1]
   end
 
+  it "should have a rotation" do
+    @camera = Camera.new( :rot => 15 )
+    @camera.rot.should == 15
+  end
+
 end
