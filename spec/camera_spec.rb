@@ -43,6 +43,10 @@ describe Camera do
       @camera.rot.should == 0
     end
     
+    it "scale should be [1,1]" do
+      @camera.scale.should == [1,1]
+    end
+    
     it "viewport should be [0,0,0,0] if View is closed" do
       @camera.viewport.should == [0,0,0,0]
     end
