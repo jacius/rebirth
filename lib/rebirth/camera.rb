@@ -65,7 +65,7 @@ class Rebirth::Camera
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
 
     glLoadIdentity()
-    glTranslate( @pos.at(0), @pos.at(1), 0 )
+    glTranslate( -@pos.at(0), -@pos.at(1), 0 )
     glRotate( @rot, 0, 0, 1 )
     glScale( @scale.at(0), @scale.at(1), 1 )
   end
