@@ -12,6 +12,11 @@ describe Camera do
     @camera = Camera.new
   end
 
+  after :each do
+    View.close
+    Camera.clear_active_camera
+  end
+
   it "should have a position" do
     @camera = Camera.new( :pos => [1,1] )
     @camera.pos.should == [1,1]
@@ -61,7 +66,7 @@ describe Camera do
 
 
   describe "(no active camera)" do
-    
+
     it "active camera should be nil" do
       Camera.active_camera.should be_nil
     end
@@ -105,10 +110,6 @@ describe Camera do
 
   describe "(reset from view)" do
 
-    after :each do
-      View.close
-    end
-    
     it "should be able to reset viewport from View" do
       View.open([32,32])
       @camera.reset_from_view
