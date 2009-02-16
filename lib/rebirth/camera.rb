@@ -43,7 +43,7 @@ class Rebirth::Camera
     @scale   = (options[:scale] or [1,1])
     @viewport = (options[:viewport] or reset_from_view)
     
-    make_active
+    make_active unless self.class.active_camera
   end
 
 
