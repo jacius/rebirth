@@ -32,4 +32,13 @@ describe Camera do
     @camera.viewport.should == [1,2,3,4]
   end
 
+
+  describe "(default)" do
+    
+    it "viewport should be [0,0,0,0] if View is closed" do
+      @camera.viewport.should == [0,0,0,0]
+    end
+
+  end
+
 end
