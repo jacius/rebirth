@@ -19,12 +19,19 @@
     - EventManager class
   
   
-  (Rectangle)
+  (Box)
   
-    - Demo: Same, but displays a solid white square.
+    - Demo: Same, but displays a solid white rectangle.
 
     - Shape class
-    - Rectangle class
+    - Box class
+
+
+  (Camera)
+
+    - Demo: Same. (Nonvisible changes only.)
+
+    - Camera class
 
   
   (Game Object)
