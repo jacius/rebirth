@@ -70,6 +70,11 @@ class Rebirth::Camera
     glScale( @scale.at(0), @scale.at(1), 1 )
   end
 
+  def post_draw
+    glFlush()
+    Rubygame::GL.swap_buffers
+  end
+
 
   private
 
