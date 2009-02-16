@@ -22,4 +22,9 @@ describe Camera do
     @camera.rot.should == 15
   end
 
+  it "should have a scale" do
+    @camera = Camera.new( :scale => [2,2] )
+    @camera.scale.should == [2,2]
+  end
+
 end
