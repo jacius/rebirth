@@ -27,4 +27,9 @@ describe Camera do
     @camera.scale.should == [2,2]
   end
 
+  it "should have a viewport" do
+    @camera = Camera.new( :viewport => [1,2,3,4] )
+    @camera.viewport.should == [1,2,3,4]
+  end
+
 end
