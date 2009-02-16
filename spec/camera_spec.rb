@@ -115,6 +115,11 @@ describe Camera do
       @camera.viewport.should == [0,0,32,32]
     end
 
+    it "should return the new viewport" do
+      View.open([32,32])
+      @camera.reset_from_view.should == [0,0,32,32]
+    end
+
   end
 
 
