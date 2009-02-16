@@ -68,6 +68,7 @@ module Rebirth
     def self.close
       Rubygame.quit
       @@size = nil
+      @@gl_setup = false
     end
 
     # call-seq:
