@@ -69,4 +69,10 @@ describe Camera do
     Camera.active_camera.should == @camera
   end
 
+  it "class should be able to clear active camera" do
+    @camera.make_active
+    Camera.clear_active_camera
+    Camera.active_camera.should == nil
+  end
+
 end
