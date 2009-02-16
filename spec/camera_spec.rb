@@ -102,4 +102,20 @@ describe Camera do
     
   end
 
+
+  describe "(reset from view)" do
+
+    after :each do
+      View.close
+    end
+    
+    it "should be able to reset viewport from View" do
+      View.open([32,32])
+      @camera.reset_from_view
+      @camera.viewport.should == [0,0,32,32]
+    end
+
+  end
+
+
 end
