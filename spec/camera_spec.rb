@@ -64,4 +64,9 @@ describe Camera do
     lambda{ @camera.make_active }.should_not raise_error
   end
 
+  it "class should tell which camera is active" do
+    @camera.make_active
+    Camera.active_camera.should == @camera
+  end
+
 end
