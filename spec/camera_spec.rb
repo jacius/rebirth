@@ -112,6 +112,11 @@ describe Camera do
       Camera.clear_active_camera
       Camera.active_camera.should == nil
     end
+
+    it "should not auto-activate new cameras" do
+      @camera2 = Camera.new
+      Camera.active_camera.should_not == @camera2
+    end
     
   end
 
