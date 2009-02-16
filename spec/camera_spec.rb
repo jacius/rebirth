@@ -59,4 +59,9 @@ describe Camera do
 
   end
 
+
+  it "should be able to be made active" do
+    lambda{ @camera.make_active }.should_not raise_error
+  end
+
 end
