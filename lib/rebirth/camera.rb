@@ -25,6 +25,9 @@ class Rebirth::Camera
 
   attr_reader :pos, :rot, :scale, :viewport
 
+  @@active_camera = nil
+
+
   def initialize( options={} )
     @pos     = (options[:pos]   or [0,0])
     @rot     = (options[:rot]   or 0)
@@ -38,6 +41,11 @@ class Rebirth::Camera
         @viewport = [0,0,0,0]
       end
     end
+  end
+
+
+  def make_active
+    @@active_camera = self
   end
 
 end
