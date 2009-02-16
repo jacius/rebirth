@@ -84,10 +84,10 @@ class Rebirth::Camera
 		glMatrixMode( GL_PROJECTION )
 		glLoadIdentity()
 
-    w,h = @viewport.at(2), @viewport.at(3)
+    w2,h2 = @viewport.at(2)*0.5, @viewport.at(3)*0.5
 
     # Scene will be translated at render time.
-		glOrtho(-w, w, -h, h, 0, 1000)
+		glOrtho(-w2, w2, -h2, h2, 0, 1000)
 
     glMatrixMode( GL_MODELVIEW )
 		glLoadIdentity()
