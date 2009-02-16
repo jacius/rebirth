@@ -51,6 +51,7 @@ module Rebirth
     def self.open( size )
       setup_gl
       @@screen = Rubygame::Screen.new(size, 16, [Rubygame::OPENGL])
+      @@size = Rubygame::Screen.get_surface.size.freeze
       return instance
     end
 
@@ -66,6 +67,16 @@ module Rebirth
     # the view will be closed automatically when the game exits.
     def self.close
       Rubygame.quit
+      @@size = nil
+    end
+
+    # call-seq:
+    #   size  ->  [w,h]
+    # 
+    # Returns the size of the View in pixels.
+    # If the View is not open, returns nil.
+    def self.size
+      @@size
     end
 
     class << self
