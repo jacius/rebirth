@@ -35,4 +35,9 @@ describe View do
     View.instance.should be_instance_of(View)
   end
 
+  it "should have a size" do
+    View.open([640,480])
+    View.size.should == [640,480]
+  end
+
 end
