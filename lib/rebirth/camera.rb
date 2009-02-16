@@ -23,11 +23,12 @@
 
 class Rebirth::Camera
 
-  attr_reader :pos, :rot
+  attr_reader :pos, :rot, :scale
 
   def initialize( options={} )
     @pos     = (options[:pos]   or [0,0])
     @rot     = (options[:rot]   or 0)
+    @scale   = (options[:scale] or [1,1])
   end
 
 end
