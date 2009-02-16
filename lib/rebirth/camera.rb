@@ -41,20 +41,20 @@ class Rebirth::Camera
     @pos     = (options[:pos]   or [0,0])
     @rot     = (options[:rot]   or 0)
     @scale   = (options[:scale] or [1,1])
-
-    @viewport = options[:viewport]
-    if @viewport.nil?
-      if Rebirth::View.open?
-        @viewport = [0,0] + Rebirth::View.size
-      else
-        @viewport = [0,0,0,0]
-      end
-    end
+    @viewport = (options[:viewport] or reset_from_view)
   end
 
 
   def make_active
     @@active_camera = self
+  end
+
+  def reset_from_view
+    if Rebirth::View.open?
+      @viewport = [0,0] + Rebirth::View.size
+    else
+      @viewport = [0,0,0,0]
+    end
   end
 
 end
