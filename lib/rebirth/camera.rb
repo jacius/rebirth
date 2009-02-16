@@ -29,7 +29,15 @@ class Rebirth::Camera
     @pos     = (options[:pos]   or [0,0])
     @rot     = (options[:rot]   or 0)
     @scale   = (options[:scale] or [1,1])
-    @viewport = (options[:viewport] or [0,0,0,0]) # TODO: default = view size
+
+    @viewport = options[:viewport]
+    if @viewport.nil?
+      if Rebirth::View.open?
+        @viewport = [0,0] + Rebirth::View.size
+      else
+        @viewport = [0,0,0,0]
+      end
+    end
   end
 
 end
