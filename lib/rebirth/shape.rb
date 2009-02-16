@@ -32,7 +32,7 @@ class Rebirth::Shape
   #            its parent (either a sprite or the world).
   #            Default: [0,0].
   # 
-  # :rot::     The rotation (angle) of the shape, in radians.
+  # :rot::     The rotation (angle) of the shape, in degrees.
   #            Rotation increases counter-clockwise.
   #            Default: 0.
   # 
@@ -66,8 +66,8 @@ class Rebirth::Shape
     glPushMatrix()
 
     glTranslate( @pos[0], @pos[1], 0 )
-    glRotate(@rot * (180/Math::PI), 0, 0, 1)
-    glScale(@scale[0], @scale[1], 1)
+    glRotate( @rot, 0, 0, 1 )
+    glScale( @scale[0], @scale[1], 1 )
 
     _draw()
 
