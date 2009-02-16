@@ -39,6 +39,12 @@ describe Camera do
       @camera.viewport.should == [0,0,0,0]
     end
 
+    it "viewport should be View's size View is open" do
+      View.open([64,48])
+      Camera.new.viewport.should == [0,0,64,48]
+      View.close
+    end
+
   end
 
 end
