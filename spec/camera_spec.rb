@@ -34,6 +34,10 @@ describe Camera do
 
 
   describe "(default)" do
+
+    it "position should be [0,0]" do
+      @camera.pos.should == [0,0]
+    end
     
     it "viewport should be [0,0,0,0] if View is closed" do
       @camera.viewport.should == [0,0,0,0]
