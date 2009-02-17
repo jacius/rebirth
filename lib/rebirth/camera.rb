@@ -38,11 +38,11 @@ class Rebirth::Camera
 
 
   def initialize( options={} )
-    @pos     = (options[:pos]   or [0,0])
-    @rot     = (options[:rot]   or 0)
-    @scale   = (options[:scale] or [1,1])
+    @pos      = (options[:pos]      or [0,0])
+    @rot      = (options[:rot]      or 0)
+    @scale    = (options[:scale]    or [1,1])
     @viewport = (options[:viewport] or reset_from_view)
-    @bgcolor = (options[:bgcolor] or [0,0,0,1])
+    @bgcolor  = (options[:bgcolor]  or [0,0,0,1])
     
     make_active unless self.class.active_camera
   end
