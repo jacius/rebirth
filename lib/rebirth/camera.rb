@@ -88,7 +88,7 @@ class Rebirth::Camera
     w2,h2 = @viewport.at(2)*0.5, @viewport.at(3)*0.5
 
     # Scene will be translated at render time.
-		glOrtho(-w2, w2, -h2, h2, 0, 1000)
+		glOrtho(-w2, w2, -h2, h2, 0, 100)
 
     glMatrixMode( GL_MODELVIEW )
   end
