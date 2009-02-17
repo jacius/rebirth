@@ -49,7 +49,12 @@ puts "Press Q to exit."
 
 
 # Create Camera and register to receive DrawEvents
-camera = Camera.new( :pos => [320,240] )
+camera = Camera.new( :pos   => [320,240],
+                     :rot   => 0,
+                     :scale => [1,1],
+                     # viewport deliberately off-center
+                     :viewport => [30, 30, 600, 440],
+                     :bgcolor => [0.2, 0, 0.2, 1])
 evm.make_magic_hooks_for( camera, { DrawEvent => :pre_draw } )
 
 
