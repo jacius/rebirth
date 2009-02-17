@@ -23,7 +23,7 @@
 
 class Rebirth::Camera
 
-  attr_reader :pos, :rot, :scale, :viewport
+  attr_reader :pos, :rot, :scale, :viewport, :bgcolor
 
   @@active_camera = nil
 
@@ -42,6 +42,7 @@ class Rebirth::Camera
     @rot     = (options[:rot]   or 0)
     @scale   = (options[:scale] or [1,1])
     @viewport = (options[:viewport] or reset_from_view)
+    @bgcolor = (options[:bgcolor] or [0,0,0,1])
     
     make_active unless self.class.active_camera
   end
