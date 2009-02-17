@@ -67,9 +67,9 @@ class Rebirth::Camera
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
 
     glLoadIdentity()
-    glTranslate( -@pos.at(0), -@pos.at(1), 0 )
-    glRotate( @rot, 0, 0, 1 )
     glScale( @scale.at(0), @scale.at(1), 1 )
+    glRotate( -@rot, 0, 0, 1 )
+    glTranslate( -@pos.at(0), -@pos.at(1), 0 )
   end
 
   def post_draw
@@ -90,7 +90,6 @@ class Rebirth::Camera
 		glOrtho(-w2, w2, -h2, h2, 0, 1000)
 
     glMatrixMode( GL_MODELVIEW )
-		glLoadIdentity()
   end
 
   def _setup_rendering
