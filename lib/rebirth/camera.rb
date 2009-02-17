@@ -98,6 +98,8 @@ class Rebirth::Camera
 		glDepthFunc(GL_LESS)
     glClearDepth(100)
 
+    glClearColor(*@bgcolor)
+
 		glEnable(GL_SCISSOR_TEST)
   end
 
