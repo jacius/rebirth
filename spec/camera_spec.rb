@@ -37,6 +37,11 @@ describe Camera do
     @camera.viewport.should == [1,2,3,4]
   end
 
+  it "should have a background color" do
+    @camera = Camera.new( :bgcolor => [1,2,3,4] )
+    @camera.bgcolor.should == [1,2,3,4]
+  end
+
 
   describe "(default)" do
 
