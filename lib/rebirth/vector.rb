@@ -3,7 +3,7 @@
 #  This file is one part of:
 #
 #  Rebirth - Game development library for Ruby
-#  Copyright (C) 2008  John Croisant
+#  Copyright (C) 2008, 2009  John Croisant
 #
 #  This library is free software; you can redistribute it and/or
 #  modify it under the terms of the GNU Lesser General Public
@@ -20,23 +20,14 @@
 # 
 #++
 
+module Rebirth
 
-dir = File.dirname(__FILE__)
+  # The Vector class implements two-dimensional vectors.
+  # It is used to represent positions, movements, and velocities
+  # in 2D space.
+  # 
+  class Vector
+    
+  end
 
-%w{ 
-
-  utility
-  vector
-  view
-  camera
-  event_handler
-  event_manager
-  events
-  shape
-  box
-
-}.each { |f|
-  require File.join(dir, 'rebirth', "%s.rb"%f)
-}
-
-require 'opengl'
+end
