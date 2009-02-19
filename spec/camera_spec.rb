@@ -17,25 +17,11 @@ describe Camera do
     Camera.clear_active_camera
   end
 
-  it "should have a position" do
-    @camera = Camera.new( :pos => Vector[1,1] )
-    @camera.pos.should == Vector[1,1]
+
+  it "should include HasTransform" do
+    @camera.should be_kind_of( HasTransform )
   end
 
-  it "should convert Array position to Vector" do
-    @camera = Camera.new( :pos => [1,1] )
-    @camera.pos.should == Vector[1,1]
-  end
-
-  it "should have a rotation" do
-    @camera = Camera.new( :rot => 15 )
-    @camera.rot.should == 15
-  end
-
-  it "should have a scale" do
-    @camera = Camera.new( :scale => [2,2] )
-    @camera.scale.should == [2,2]
-  end
 
   it "should have a viewport" do
     @camera = Camera.new( :viewport => [1,2,3,4] )
@@ -50,18 +36,6 @@ describe Camera do
 
   describe "(default)" do
 
-    it "position should be Vector[0,0]" do
-      @camera.pos.should == Vector[0,0]
-    end
-    
-    it "rotation should be 0" do
-      @camera.rot.should == 0
-    end
-    
-    it "scale should be [1,1]" do
-      @camera.scale.should == [1,1]
-    end
-    
     it "viewport should be [0,0,0,0] if View is closed" do
       @camera.viewport.should == [0,0,0,0]
     end
