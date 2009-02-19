@@ -86,6 +86,12 @@ describe Vector do
       result.to_ary.should == [4,-2]
     end
 
+    it "should have a subtraction operator" do
+      result = @v1 - @v2
+      result.should be_instance_of(Vector)
+      result.to_ary.should == [-2,6]
+    end
+
   end
 
 end
