@@ -126,9 +126,9 @@ class Rebirth::Camera
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
 
     glLoadIdentity()
-    glScale( @scale.at(0), @scale.at(1), 1 )
-    glRotate( -@rot, 0, 0, 1 )
-    glTranslate( -(@pos.at(0)), -(@pos.at(1)), 0 )
+    glScale2( *@scale )
+    glRotate1( -@rot )
+    glTranslate2( *(-@pos) )
   end
 
   # Perform some OpenGL magic to clean up after drawing
