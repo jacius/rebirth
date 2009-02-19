@@ -29,4 +29,13 @@ describe Vector do
 
   end
 
+
+  describe "(constructors)" do
+    
+    it "should have a square brackets constructor" do
+      Vector[1,2].should be_instance_of(Vector)
+    end
+
+  end
+
 end
