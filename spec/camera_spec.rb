@@ -22,6 +22,11 @@ describe Camera do
     @camera.pos.should == Vector[1,1]
   end
 
+  it "should convert Array position to Vector" do
+    @camera = Camera.new( :pos => [1,1] )
+    @camera.pos.should == Vector[1,1]
+  end
+
   it "should have a rotation" do
     @camera = Camera.new( :rot => 15 )
     @camera.rot.should == 15
