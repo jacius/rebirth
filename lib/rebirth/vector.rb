@@ -166,6 +166,12 @@ module Rebirth
       [@x, @y]
     end
 
+
+    # Return a copy of this vector, but with a magnitude of 1.
+    def unit
+      self * (1/magnitude())
+    end
+
   end
 
 end
