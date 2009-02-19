@@ -34,6 +34,14 @@ module Rebirth
 
       alias :[] :new
 
+
+      # Create a new Vector from an angle in radians and a
+      # magnitude. Use #new_dam for degrees.
+      def new_am( angle_rad, magnitude )
+        self.new( Math::cos(angle_rad)*magnitude,
+                  Math::sin(angle_rad)*magnitude )
+      end
+
     end
 
 
