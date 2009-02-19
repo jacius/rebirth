@@ -145,4 +145,11 @@ describe Vector do
     @v1.projected_onto(@v2).should == Vector.new(-0.6, 0.8)
   end
 
+
+  it "should have a unit vector" do
+    u = @v1.unit
+    u.magnitude.should == 1.0
+    u.angle.should == @v1.angle
+  end
+
 end
