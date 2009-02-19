@@ -92,6 +92,12 @@ describe Vector do
       result.to_ary.should == [-2,6]
     end
 
+    it "should have a negation operator" do
+      result = -(@v2)
+      result.should be_instance_of(Vector)
+      result.to_ary.should == [-3,4]
+    end
+
   end
 
 end
