@@ -125,6 +125,14 @@ module Rebirth
     end
 
 
+    # Return the angle of this vector relative to the other vector,
+    # in radians. Use #dangle_with for degrees.
+    # 
+    def angle_with( vector )
+      Math.acos( self.udot(vector) )
+    end
+
+
     # Return the angle of this vector, relative to the positive
     # X axis, in degrees. Use #angle for radians.
     # 
