@@ -18,8 +18,8 @@ describe Camera do
   end
 
   it "should have a position" do
-    @camera = Camera.new( :pos => [1,1] )
-    @camera.pos.should == [1,1]
+    @camera = Camera.new( :pos => Vector[1,1] )
+    @camera.pos.should == Vector[1,1]
   end
 
   it "should have a rotation" do
@@ -45,8 +45,8 @@ describe Camera do
 
   describe "(default)" do
 
-    it "position should be [0,0]" do
-      @camera.pos.should == [0,0]
+    it "position should be Vector[0,0]" do
+      @camera.pos.should == Vector[0,0]
     end
     
     it "rotation should be 0" do
