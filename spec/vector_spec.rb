@@ -130,4 +130,9 @@ describe Vector do
 
   end
 
+
+  it "should have a magnitude" do
+    Vector.new(3,4).magnitude.should == 5
+  end
+
 end
