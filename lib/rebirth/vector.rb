@@ -133,6 +133,18 @@ module Rebirth
     end
 
 
+    # Return the dot product between this vector and the other vector.
+    def dot( vector )
+      (@x * vector.x) + (@y * vector.y)
+    end
+
+
+    # Return the magnitude (distance) of this vector.
+    def magnitude
+      Math.hypot( @x, @y )
+    end
+
+
     # Return this vector as an [x,y] Array.
     def to_ary
       [@x, @y]
