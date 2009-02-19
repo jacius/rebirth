@@ -92,6 +92,14 @@ module Rebirth
     end
 
 
+    # Multiply this vector by the given scalar (Numeric),
+    # and return the resulting vector.
+    # 
+    def *( scalar )
+      self.class.new( @x * scalar,    @y * scalar   )
+    end
+
+
     # Return this vector as an [x,y] Array.
     def to_ary
       [@x, @y]
