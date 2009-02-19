@@ -43,6 +43,13 @@ describe Vector do
       @v.y.should be_nearly_equal(n)
     end
 
+    it "should have a polar constructor (degrees)" do
+      n = 0.707106781186548
+      @v = Vector.new_dam(45, 1.0)
+      @v.x.should be_nearly_equal(n)
+      @v.y.should be_nearly_equal(n)
+    end
+
   end
 
 end
