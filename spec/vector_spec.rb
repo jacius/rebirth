@@ -160,6 +160,11 @@ describe Vector do
   end
 
 
+  it "should be stretchable on both axes" do
+    @v1.stretch(*@v2).should == Vector.new(3,-8)
+  end
+
+
   it "should have a unit vector" do
     u = @v1.unit
     u.magnitude.should == 1.0
