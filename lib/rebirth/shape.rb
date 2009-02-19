@@ -67,9 +67,9 @@ class Rebirth::Shape
   def draw
     glPushMatrix()
 
-    glTranslate( @pos.at(0), @pos.at(1), 0 )
-    glRotate( @rot, 0, 0, 1 )
-    glScale( @scale[0], @scale[1], 1 )
+    glTranslate2( *@pos )
+    glRotate1( @rot )
+    glScale2( *@scale )
 
     _draw()
 
