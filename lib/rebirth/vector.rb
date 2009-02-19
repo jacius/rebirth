@@ -183,6 +183,13 @@ module Rebirth
     end
 
 
+    def to_s
+      "#{self.class.name}[#{@x}, #{@y}]"
+    end
+
+    alias :inspect :to_s
+
+
     # Return the dot product of this vector's #unit and the other
     # vector's #unit.
     # 
