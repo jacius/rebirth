@@ -141,6 +141,14 @@ module Rebirth
     end
 
 
+    # Return the angle of this vector relative to the other vector,
+    # in radians. Use #angle_with for radians.
+    # 
+    def dangle_with( vector )
+      angle_with(vector).to_deg
+    end
+
+
     # Return the dot product between this vector and the other vector.
     def dot( vector )
       (@x * vector.x) + (@y * vector.y)
