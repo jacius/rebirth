@@ -167,6 +167,14 @@ module Rebirth
     end
 
 
+    # Return the dot product of this vector's #unit and the other
+    # vector's #unit.
+    # 
+    def udot( vector )
+      self.unit.dot( vector.unit )
+    end
+
+
     # Return a copy of this vector, but with a magnitude of 1.
     def unit
       self * (1/magnitude())
