@@ -49,6 +49,17 @@ module Rebirth
         self.new_am( angle_deg.to_rad, magnitude )
       end
 
+
+      # call-seq:
+      #   Vector.many( [x1,y1], [x2,y2], ... )
+      # 
+      # Convert multiple [x,y] Arrays to Vectors.
+      # Returns the resulting vectors in an Array.
+      # 
+      def many( *pairs )
+        pairs.collect { |pair| self.new(*pair) }
+      end
+
     end
 
 
