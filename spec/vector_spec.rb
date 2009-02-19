@@ -50,6 +50,17 @@ describe Vector do
       @v.y.should be_nearly_equal(n)
     end
 
+    it "should have an en masse constructor" do
+      arrays = [[1,2], [3,4], [5,6]]
+      vectors = Vector.many( *arrays )
+
+      vectors.each_with_index { |vector,i|
+        vector.should be_instance_of(Vector)
+        vector.x.should == arrays[i][0]
+        vector.y.should == arrays[i][1]
+      }
+    end
+
   end
 
 end
