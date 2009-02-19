@@ -117,6 +117,14 @@ module Rebirth
     end
 
 
+    # Return the angle of this vector, relative to the positive
+    # X axis, in radians. Use #dangle for degrees.
+    # 
+    def angle
+      Math.atan2( @y, @x )
+    end
+
+
     # Return this vector as an [x,y] Array.
     def to_ary
       [@x, @y]
