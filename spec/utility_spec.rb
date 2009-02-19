@@ -16,6 +16,11 @@ describe "Numeric#nearly_equal?" do
     (0.4).should_not be_nearly_equal(0.43, 0.02)
   end
 
+  it "should be commutative" do
+    (0.40).should_not be_nearly_equal(0.43, 0.02)
+    (0.43).should_not be_nearly_equal(0.40, 0.02)
+  end
+
   it "should work with two Floats" do
     (1.0).should be_nearly_equal(1.01, 0.02)
   end
