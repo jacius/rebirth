@@ -30,12 +30,18 @@ module Rebirth
 
     attr_reader :x, :y
 
+    class << self
+
+      alias :[] :new
+
+    end
+
+
     # Create a new Vector with the given x and y values.
     def initialize( x, y )
       @x, @y = x.to_f, y.to_f
     end
 
-	
   end
 
 end
