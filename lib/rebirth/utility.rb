@@ -47,3 +47,23 @@ class Numeric
   end
 
 end
+
+
+# Performs a require on a file, given a relative path starting
+# from the current file's directory.
+# 
+# E.g. if called from /tmp/a.rb, this would require /tmp/b.rb:
+# 
+#     need { "b" }
+# 
+# Note the curly braces signifying a code block.
+# 
+# Based on descriptions of Drew Olson's "need" library:
+# 
+#   http://need.rubyforge.org/
+#
+def need( &block )
+  require File.expand_path( block.call,
+                            File.dirname( eval( "__FILE__",
+                                                block.binding ) ))
+end
