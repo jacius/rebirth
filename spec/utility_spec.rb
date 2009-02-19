@@ -38,3 +38,13 @@ describe "Numeric#nearly_equal?" do
 
 end
 
+
+describe "Numeric#to_deg" do
+  
+  it "should multiply the number by 180/pi" do
+    -10.step(10, 0.2) do |n|
+      n.to_deg.should be_nearly_equal( n * 180/Math::PI )
+    end
+  end
+
+end
