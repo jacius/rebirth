@@ -152,4 +152,9 @@ describe Vector do
     u.angle.should == @v1.angle
   end
 
+
+  it "should have a unit dot product operator" do
+    @v1.udot(@v2).should == @v1.unit.dot(@v2.unit)
+  end
+
 end
