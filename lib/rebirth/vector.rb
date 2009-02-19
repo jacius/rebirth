@@ -109,6 +109,14 @@ module Rebirth
     end
 
 
+    # Return a component of this vector as if it were an
+    # [x,y] Array.
+    # 
+    def []( index )
+      self.to_ary[index]
+    end
+
+
     # Return this vector as an [x,y] Array.
     def to_ary
       [@x, @y]
