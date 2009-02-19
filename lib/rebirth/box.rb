@@ -20,7 +20,7 @@
 # 
 #++
 
-require 'rebirth/shape'
+need{ "shape" }
 
 
 class Rebirth::Box < Rebirth::Shape
