@@ -140,4 +140,9 @@ describe Vector do
     @v1.perp.should == Vector.new(-2,1)
   end
 
+
+  it "should be projectable onto another vector" do
+    @v1.projected_onto(@v2).should == Vector.new(-0.6, 0.8)
+  end
+
 end
