@@ -48,3 +48,14 @@ describe "Numeric#to_deg" do
   end
 
 end
+
+
+describe "Numeric#to_rad" do
+  
+  it "should multiply the number by pi/180" do
+    -10.step(10, 0.2) do |n|
+      n.to_rad.should be_nearly_equal( n * Math::PI/180 )
+    end
+  end
+
+end
