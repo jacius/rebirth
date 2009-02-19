@@ -30,6 +30,15 @@ describe Vector do
   end
 
 
+  describe "(conversions)" do
+    
+    it "should be convertible to array" do
+      Vector.new(1.0, 2.0).to_ary.should == [1.0, 2.0]
+    end
+
+  end
+
+
   describe "(constructors)" do
     
     it "should have a square brackets constructor" do
