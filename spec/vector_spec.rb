@@ -136,4 +136,8 @@ describe Vector do
   end
 
 
+  it "should have a perpendicular vector" do
+    @v1.perp.should == Vector.new(-2,1)
+  end
+
 end
