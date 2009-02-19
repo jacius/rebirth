@@ -124,6 +124,10 @@ describe Vector do
       Vector.new(1,1).angle.should be_nearly_equal(Math::PI*0.25)
     end
 
+    it "should have an angle (degrees)" do
+      Vector.new(1,1).dangle.should == 45
+    end
+
   end
 
 end
