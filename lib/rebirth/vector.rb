@@ -68,6 +68,12 @@ module Rebirth
       @x, @y = x.to_f, y.to_f
     end
 
+
+    # Return this vector as an [x,y] Array.
+    def to_ary
+      [@x, @y]
+    end
+
   end
 
 end
