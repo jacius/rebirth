@@ -117,4 +117,13 @@ describe Vector do
     v[1].should == 2
   end
 
+
+  describe "(angles)" do
+    
+    it "should have an angle (radians)" do
+      Vector.new(1,1).angle.should be_nearly_equal(Math::PI*0.25)
+    end
+
+  end
+
 end
