@@ -27,7 +27,15 @@ module Rebirth
   # in 2D space.
   # 
   class Vector
-    
+
+    attr_reader :x, :y
+
+    # Create a new Vector with the given x and y values.
+    def initialize( x, y )
+      @x, @y = x.to_f, y.to_f
+    end
+
+	
   end
 
 end
