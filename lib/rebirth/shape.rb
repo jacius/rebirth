@@ -20,11 +20,14 @@
 # 
 #++
 
+need{ "hastransform" }
+
 # Shape is the base class for all shapes in Rebirth.
 # 
 class Rebirth::Shape
+  include Rebirth::HasTransform
 
-  attr_reader :pos, :rot, :scale, :depth
+  attr_reader :depth
 
   # Create a new Shape with certain options:
   # 
@@ -49,11 +52,8 @@ class Rebirth::Shape
   #            Default: true.
   # 
   def initialize( options={} )
-    @pos     = (options[:pos]   or Rebirth::Vector[0,0])
-    @pos = Rebirth::Vector[*@pos] if @pos.kind_of?(Array)
+    super
 
-    @rot     = (options[:rot]   or 0)
-    @scale   = (options[:scale] or [1,1])
     @depth   = (options[:depth] or 0)
     @visible = (options.has_key?(:visible) ? options[:visible] : true)
   end
