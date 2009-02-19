@@ -69,6 +69,14 @@ module Rebirth
     end
 
 
+    # Add the given vector to this one and return the
+    # resulting vector.
+    # 
+    def +( vector )
+      self.class.new( @x + vector.x,  @y + vector.y )
+    end
+
+
     # Return this vector as an [x,y] Array.
     def to_ary
       [@x, @y]
