@@ -23,7 +23,8 @@
 
 require 'rubygame'
 require 'singleton'
-require 'rebirth/event_handler'
+
+need{ 'event_handler' }
 
 
 module Rebirth
