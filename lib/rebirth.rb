@@ -3,7 +3,7 @@
 #  This file is one part of:
 #
 #  Rebirth - Game development library for Ruby
-#  Copyright (C) 2008  John Croisant
+#  Copyright (C) 2008, 2009  John Croisant
 #
 #  This library is free software; you can redistribute it and/or
 #  modify it under the terms of the GNU Lesser General Public
@@ -22,11 +22,18 @@
 
 
 require 'opengl'
+require 'rubygame'
+
+
+module Rebirth
+end
+
+
+require File.join( File.dirname(__FILE__), 'rebirth', 'utility')
 
 %w{ 
 
   gl
-  utility
   vector
   view
   camera
@@ -37,7 +44,5 @@ require 'opengl'
   box
 
 }.each { |f|
-  require File.join( File.dirname(__FILE__), 'rebirth', "%s.rb"%f)
+  need{ "rebirth/#{f}" }
 }
-
-
