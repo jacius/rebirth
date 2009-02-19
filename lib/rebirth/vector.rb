@@ -179,6 +179,14 @@ module Rebirth
     end
 
 
+    # Return a copy of this vector, but scaled separately on each axis.
+    # The new vector will be Vector[ x*scale_x, y*scale_y ].
+    # 
+    def stretch( scale_x, scale_y )
+      self.class.new( self.x * scale_x, self.y * scale_y )
+    end
+
+
     # Return this vector as an [x,y] Array.
     def to_ary
       [@x, @y]
