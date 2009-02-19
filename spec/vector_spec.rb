@@ -128,6 +128,10 @@ describe Vector do
       @v1.angle_with(@v2).should be_nearly_equal(2.0344439357957)
     end
 
+    it "should have an angle with another vector (degrees)" do
+      @v1.dangle_with(@v2).should be_nearly_equal(116.565051177078)
+    end
+
   end
 
 
