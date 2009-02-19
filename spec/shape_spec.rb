@@ -12,21 +12,12 @@ describe Shape do
     @shape = Shape.new
   end
 
+  it "should include HasTransform" do
+    @shape.should be_kind_of( HasTransform )
+  end
 
   describe "(default)" do
     
-    it "position should be Vector[0,0]" do
-      @shape.pos.should == Vector[0,0]
-    end
-
-    it "rotation should be 0" do
-      @shape.rot.should == 0
-    end
-
-    it "scale should be [1,1]" do
-      @shape.scale.should == [1,1]
-    end
-
     it "depth should be 0" do
       @shape.depth.should == 0
     end
@@ -37,26 +28,6 @@ describe Shape do
 
   end
 
-
-  it "should have a position vector" do
-    @shape = Shape.new( :pos => Vector[1,2] )
-    @shape.pos.should == Vector[1,2]
-  end
-
-  it "should convert initial position to Vector" do
-    @shape = Shape.new( :pos => [1,2] )
-    @shape.pos.should == Vector[1,2]
-  end
-
-  it "should have a rotation" do
-    @shape = Shape.new( :rot => 1 )
-    @shape.rot.should == 1
-  end
-
-  it "should have a scale" do
-    @shape = Shape.new( :scale => [1,2] )
-    @shape.scale.should == [1,2]
-  end
 
   it "should have a depth" do
     @shape = Shape.new( :depth => 1 )
