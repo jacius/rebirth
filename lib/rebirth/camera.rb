@@ -57,7 +57,7 @@ class Rebirth::Camera
   # 
   # :pos::       The position of the camera's center, relative to
   #              the world.
-  #              Default: [0,0].
+  #              Default: Vector[0,0].
   # 
   # :rot::       The rotation (angle) of the camera, in degrees.
   #              Rotation increases counter-clockwise.
@@ -79,7 +79,7 @@ class Rebirth::Camera
   #              Default: [0,0,0,1] (black)
   # 
   def initialize( options={} )
-    @pos      = (options[:pos]      or [0,0])
+    @pos      = (options[:pos]      or Rebirth::Vector[0,0])
     @rot      = (options[:rot]      or 0)
     @scale    = (options[:scale]    or [1,1])
     @viewport = (options[:viewport] or reset_from_view)
@@ -126,7 +126,7 @@ class Rebirth::Camera
     glLoadIdentity()
     glScale( @scale.at(0), @scale.at(1), 1 )
     glRotate( -@rot, 0, 0, 1 )
-    glTranslate( -@pos.at(0), -@pos.at(1), 0 )
+    glTranslate( -(@pos.at(0)), -(@pos.at(1)), 0 )
   end
 
   # Perform some OpenGL magic to clean up after drawing
