@@ -3,7 +3,7 @@
 #  This file is one part of:
 #
 #  Rebirth - Game development library for Ruby
-#  Copyright (C) 2008  John Croisant
+#  Copyright (C) 2008, 2009  John Croisant
 #
 #  This library is free software; you can redistribute it and/or
 #  modify it under the terms of the GNU Lesser General Public
@@ -20,24 +20,16 @@
 # 
 #++
 
+# OpenGL mixins and utility functions
 
-require 'opengl'
+def glRotate1(a)
+  glRotate( a, 0, 0, 1 )
+end
 
-%w{ 
+def glScale2(x,y)
+  glScale(x,y,1)
+end
 
-  gl
-  utility
-  vector
-  view
-  camera
-  event_handler
-  event_manager
-  events
-  shape
-  box
-
-}.each { |f|
-  require File.join( File.dirname(__FILE__), 'rebirth', "%s.rb"%f)
-}
-
-
+def glTranslate2(x,y)
+  glTranslate(x,y,0)
+end
