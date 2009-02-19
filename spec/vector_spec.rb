@@ -104,6 +104,10 @@ describe Vector do
       result.to_ary.should == [3,6]
     end
 
+    it "should have an equality operator" do
+      @v1.should == Vector.new(1,2)
+    end
+
   end
 
 end
