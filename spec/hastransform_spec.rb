@@ -45,6 +45,12 @@ describe HasTransform do
     @instance.pos.should == Vector[1,2]
   end
 
+  it "should be able to set position" do
+    @instance.pos = Vector[4,1]
+    @instance.pos.should == Vector[4,1]
+  end
+
+
   it "should have a rotation" do
     @instance = @class.new( :rot => 1 )
     @instance.rot.should == 1
