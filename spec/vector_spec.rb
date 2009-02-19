@@ -8,23 +8,24 @@ include Rebirth
 
 describe Vector do
 
+  before :each do
+    @v1 = Vector.new(1,2)
+    @v2 = Vector.new(3,-4)
+  end
+
   describe "(components)" do
-    
-    before :each do
-      @v = Vector.new(1,2)
-    end
-    
+
     it "should have an x component" do
-      @v.x.should == 1
+      @v1.x.should == 1
     end
 
     it "should have a y component" do
-      @v.y.should == 2
+      @v1.y.should == 2
     end
 
     it "should store x and y as floats" do
-      @v.x.should be_instance_of(Float)
-      @v.x.should be_instance_of(Float)
+      @v1.x.should be_instance_of(Float)
+      @v1.x.should be_instance_of(Float)
     end
 
   end
@@ -33,7 +34,7 @@ describe Vector do
   describe "(conversions)" do
     
     it "should be convertible to array" do
-      Vector.new(1.0, 2.0).to_ary.should == [1.0, 2.0]
+      @v1.to_ary.should == [1.0, 2.0]
     end
 
   end
@@ -75,11 +76,6 @@ describe Vector do
 
   describe "(math)" do
     
-    before :each do
-      @v1 = Vector.new(1,2)
-      @v2 = Vector.new(3,-4)
-    end
-
     it "should have an addition operator" do
       result = @v1 + @v2
       result.should be_instance_of(Vector)
@@ -112,9 +108,8 @@ describe Vector do
 
 
   it "should have an index operator" do
-    v = Vector.new(1,2)
-    v[0].should == 1
-    v[1].should == 2
+    @v1[0].should == 1
+    @v1[1].should == 2
   end
 
 
@@ -132,14 +127,13 @@ describe Vector do
 
 
   it "should have a magnitude" do
-    Vector.new(3,4).magnitude.should == 5
+    @v2.magnitude.should == 5
   end
 
 
   it "should have a dot product operator" do
-    v1 = Vector.new(1,2)
-    v2 = Vector.new(3,4)
-    v1.dot(v2).should == (1*3 + 2*4)
+    @v1.dot(@v2).should == (1*3 + 2*(-4))
   end
+
 
 end
