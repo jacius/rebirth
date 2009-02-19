@@ -100,6 +100,15 @@ module Rebirth
     end
 
 
+    # True if the given vector's x and y components are
+    # equal to this vector's components (within a small margin
+    # of error to compensate for floating point imprecision).
+    # 
+    def ==( vector )
+      @x.nearly_equal?(vector.x) and @y.nearly_equal?(vector.y)
+    end
+
+
     # Return this vector as an [x,y] Array.
     def to_ary
       [@x, @y]
