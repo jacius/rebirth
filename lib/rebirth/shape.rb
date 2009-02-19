@@ -30,7 +30,7 @@ class Rebirth::Shape
   # 
   # :pos::     The position of the shape's center, relative to
   #            its parent (either a sprite or the world).
-  #            Default: [0,0].
+  #            Default: Vector[0,0].
   # 
   # :rot::     The rotation (angle) of the shape, in degrees.
   #            Rotation increases counter-clockwise.
@@ -49,7 +49,7 @@ class Rebirth::Shape
   #            Default: true.
   # 
   def initialize( options={} )
-    @pos     = (options[:pos]   or [0,0])
+    @pos     = (options[:pos]   or Rebirth::Vector[0,0])
     @rot     = (options[:rot]   or 0)
     @scale   = (options[:scale] or [1,1])
     @depth   = (options[:depth] or 0)
@@ -65,7 +65,7 @@ class Rebirth::Shape
   def draw
     glPushMatrix()
 
-    glTranslate( @pos[0], @pos[1], 0 )
+    glTranslate( @pos.at(0), @pos.at(1), 0 )
     glRotate( @rot, 0, 0, 1 )
     glScale( @scale[0], @scale[1], 1 )
 

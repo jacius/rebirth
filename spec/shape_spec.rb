@@ -15,8 +15,8 @@ describe Shape do
 
   describe "(default)" do
     
-    it "position should be [0,0]" do
-      @shape.pos.should == [0,0]
+    it "position should be Vector[0,0]" do
+      @shape.pos.should == Vector[0,0]
     end
 
     it "rotation should be 0" do
