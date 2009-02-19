@@ -85,6 +85,13 @@ module Rebirth
     end
 
 
+    # Return the opposite of this vector, i.e. Vector[-x, -y].
+    # 
+    def -@
+      self.class.new( -@x, -@y )
+    end
+
+
     # Return this vector as an [x,y] Array.
     def to_ary
       [@x, @y]
