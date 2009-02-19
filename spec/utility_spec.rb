@@ -20,4 +20,8 @@ describe "Numeric#nearly_equal?" do
     (1.0).should be_nearly_equal(1.01, 0.02)
   end
 
+  it "should work with two integers" do
+    (1).should be_nearly_equal(2, 2)
+  end
+
 end
