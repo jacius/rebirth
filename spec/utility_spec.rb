@@ -41,6 +41,11 @@ describe "Numeric#nearly_equal?" do
     (1.0000000000001).should be_nearly_equal(1.0000000000002)
   end
 
+  it "should work with negative numbers" do
+    (-0.40).should_not be_nearly_equal(-0.43, 0.02)
+    (-0.43).should_not be_nearly_equal(-0.40, 0.02)
+  end
+
 end
 
 
