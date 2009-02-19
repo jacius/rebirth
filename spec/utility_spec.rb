@@ -32,4 +32,9 @@ describe "Numeric#nearly_equal?" do
     (1).should be_nearly_equal(1.01, 0.02)
   end
 
+  it "should have a very small default threshold" do
+    (1.0000000000001).should be_nearly_equal(1.0000000000002)
+  end
+
 end
+
