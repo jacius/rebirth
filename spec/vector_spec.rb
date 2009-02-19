@@ -135,4 +135,11 @@ describe Vector do
     Vector.new(3,4).magnitude.should == 5
   end
 
+
+  it "should have a dot product operator" do
+    v1 = Vector.new(1,2)
+    v2 = Vector.new(3,4)
+    v1.dot(v2).should == (1*3 + 2*4)
+  end
+
 end
