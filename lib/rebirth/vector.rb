@@ -145,6 +145,14 @@ module Rebirth
     end
 
 
+    # Return a copy of this vector, but rotated 90 degrees
+    # counter-clockwise.
+    # 
+    def perp
+      self.class.new( -@y, @x )
+    end
+
+
     # Return this vector as an [x,y] Array.
     def to_ary
       [@x, @y]
