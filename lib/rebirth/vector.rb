@@ -153,6 +153,14 @@ module Rebirth
     end
 
 
+    # Return a new vector which is this vector projected onto
+    # the other vector.
+    # 
+    def projected_onto( v )
+      self.class.new(  *(v * v.dot(self) * (1/v.magnitude**2) )  )
+    end
+
+
     # Return this vector as an [x,y] Array.
     def to_ary
       [@x, @y]
