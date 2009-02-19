@@ -123,6 +123,11 @@ describe Vector do
       Vector.new(1,1).dangle.should == 45
     end
 
+
+    it "should have an angle with another vector (radians)" do
+      @v1.angle_with(@v2).should be_nearly_equal(2.0344439357957)
+    end
+
   end
 
 
