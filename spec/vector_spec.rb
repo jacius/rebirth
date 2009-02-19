@@ -107,9 +107,14 @@ describe Vector do
   end
 
 
-  it "should have an index operator" do
+  it "should have an index operator (brackets)" do
     @v1[0].should == 1
     @v1[1].should == 2
+  end
+
+  it "should have an index operator (at)" do
+    @v1.at(0).should == 1
+    @v1.at(1).should == 2
   end
 
 
