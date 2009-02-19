@@ -116,6 +116,8 @@ module Rebirth
       self.to_ary[index]
     end
 
+    alias :at :[]
+
 
     # Return the angle of this vector, relative to the positive
     # X axis, in radians. Use #dangle for degrees.
