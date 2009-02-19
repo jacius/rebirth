@@ -20,6 +20,7 @@
 # 
 #++
 
+need{ "hastransform" }
 
 # The Camera class controls your point of view within the scene,
 # i.e. which part of the scene you see on the screen.
@@ -31,8 +32,9 @@
 # once from each camera.
 # 
 class Rebirth::Camera
+  include Rebirth::HasTransform
 
-  attr_reader :pos, :rot, :scale, :viewport, :bgcolor
+  attr_reader :viewport, :bgcolor
 
   @@active_camera = nil
 
@@ -79,11 +81,8 @@ class Rebirth::Camera
   #              Default: [0,0,0,1] (black)
   # 
   def initialize( options={} )
-    @pos      = (options[:pos]      or Rebirth::Vector[0,0])
-    @pos = Rebirth::Vector[*@pos] if @pos.kind_of?(Array)
+    super
 
-    @rot      = (options[:rot]      or 0)
-    @scale    = (options[:scale]    or [1,1])
     @viewport = (options[:viewport] or reset_from_view)
     @bgcolor  = (options[:bgcolor]  or [0,0,0,1])
     
