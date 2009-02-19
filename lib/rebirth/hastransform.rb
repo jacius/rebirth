@@ -57,6 +57,20 @@ module Rebirth
       @scale   = (options[:scale] or [1,1])
     end
 
+
+    # Sets the position to a new value.
+    # 
+    # new_pos::  The new position as a Vector or [x,y] Array.
+    # 
+    def pos=( new_pos )
+      case new_pos
+      when Vector
+        @pos = new_pos
+      when Array
+        @pos = Vector[*new_pos]
+      end
+    end
+
   end
 
 end
