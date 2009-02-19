@@ -72,4 +72,20 @@ describe Vector do
 
   end
 
+
+  describe "(math)" do
+    
+    before :each do
+      @v1 = Vector.new(1,2)
+      @v2 = Vector.new(3,-4)
+    end
+
+    it "should have an addition operator" do
+      result = @v1 + @v2
+      result.should be_instance_of(Vector)
+      result.to_ary.should == [4,-2]
+    end
+
+  end
+
 end
