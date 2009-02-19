@@ -42,6 +42,13 @@ module Rebirth
                   Math::sin(angle_rad)*magnitude )
       end
 
+
+      # Create a new Vector from an angle in degrees and a
+      # magnitude. Use #new_am for radians.
+      def new_dam( angle_deg, magnitude )
+        self.new_am( angle_deg.to_rad, magnitude )
+      end
+
     end
 
 
