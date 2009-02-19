@@ -25,11 +25,25 @@
 
 class Numeric
 
+  @@rad_to_deg = 180.0/Math::PI
+  @@deg_to_rad = Math::PI/180.0
+
   # True if the distance between this number and the other number
   # is less than or equal to the threshold. Useful for testing Floats.
   # 
 	def nearly_equal?(other, threshold=0.00000000001 )
 		return (self - other).abs <= threshold
 	end
+
+
+  # Assume this is an angle in radians, and convert to degrees.
+  def to_deg
+    self * @@rad_to_deg
+  end
+
+  # Assume this is an angle in degrees, and convert to radians.
+  def to_rad
+    self * @@deg_to_rad
+  end
 
 end
