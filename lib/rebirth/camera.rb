@@ -80,6 +80,8 @@ class Rebirth::Camera
   # 
   def initialize( options={} )
     @pos      = (options[:pos]      or Rebirth::Vector[0,0])
+    @pos = Rebirth::Vector[*@pos] if @pos.kind_of?(Array)
+
     @rot      = (options[:rot]      or 0)
     @scale    = (options[:scale]    or [1,1])
     @viewport = (options[:viewport] or reset_from_view)
