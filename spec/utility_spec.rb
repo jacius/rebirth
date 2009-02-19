@@ -24,4 +24,8 @@ describe "Numeric#nearly_equal?" do
     (1).should be_nearly_equal(2, 2)
   end
 
+  it "should work with a Float and an integer" do
+    (1.01).should be_nearly_equal(1, 0.02)
+  end
+
 end
