@@ -110,4 +110,11 @@ describe Vector do
 
   end
 
+
+  it "should have an index operator" do
+    v = Vector.new(1,2)
+    v[0].should == 1
+    v[1].should == 2
+  end
+
 end
