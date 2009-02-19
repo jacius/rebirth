@@ -36,6 +36,13 @@ describe Vector do
       Vector[1,2].should be_instance_of(Vector)
     end
 
+    it "should have a polar constructor (radians)" do
+      n = 0.707106781186548
+      @v = Vector.new_am(Math::PI * 0.25, 1.0)
+      @v.x.should be_nearly_equal(n)
+      @v.y.should be_nearly_equal(n)
+    end
+
   end
 
 end
