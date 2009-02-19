@@ -38,9 +38,14 @@ describe Shape do
   end
 
 
-  it "should have a position" do
+  it "should have a position vector" do
+    @shape = Shape.new( :pos => Vector[1,2] )
+    @shape.pos.should == Vector[1,2]
+  end
+
+  it "should convert initial position to Vector" do
     @shape = Shape.new( :pos => [1,2] )
-    @shape.pos.should == [1,2]
+    @shape.pos.should == Vector[1,2]
   end
 
   it "should have a rotation" do
