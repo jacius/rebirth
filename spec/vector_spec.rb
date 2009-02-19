@@ -98,6 +98,12 @@ describe Vector do
       result.to_ary.should == [-3,4]
     end
 
+    it "should have a scalar multiplication operator" do
+      result = @v1 * 3
+      result.should be_instance_of(Vector)
+      result.to_ary.should == [3,6]
+    end
+
   end
 
 end
