@@ -82,4 +82,9 @@ describe HasTransform do
     @instance.scale.should == [1,2]
   end
 
+  it "should be able to set scale" do
+    @instance.scale = Vector[3,4]
+    @instance.scale.should == Vector[3,4]
+  end
+
 end
