@@ -78,6 +78,20 @@ module Rebirth
       @rot = new_rot.to_f
     end
 
+
+    # Sets the scale to a new value.
+    # 
+    # new_scale  The new scale as a Vector or [x,y] Array.
+    # 
+    def scale=( new_scale )
+      case new_scale
+      when Vector
+        @scale = new_scale
+      when Array
+        @scale = Vector[*new_scale]
+      end
+    end
+
   end
 
 end
