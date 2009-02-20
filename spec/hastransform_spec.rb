@@ -61,6 +61,12 @@ describe HasTransform do
     @instance.rot.should == 1
   end
 
+  it "should able to set rotation" do
+    @instance.rot = 45
+    @instance.rot.should == 45
+  end
+
+
   it "should have a scale" do
     @instance = @class.new( :scale => [1,2] )
     @instance.scale.should == [1,2]
