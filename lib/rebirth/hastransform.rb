@@ -75,7 +75,7 @@ module Rebirth
     # new_rot::  The new rotation, in degrees.
     # 
     def rot=( new_rot )
-      @rot = new_rot
+      @rot = new_rot.to_f
     end
 
   end
