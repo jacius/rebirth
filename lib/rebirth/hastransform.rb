@@ -61,12 +61,7 @@ module Rebirth
     # new_pos::  The new position as a Vector or [x,y] Array.
     # 
     def pos=( new_pos )
-      case new_pos
-      when Vector
-        @pos = new_pos
-      when Array
-        @pos = Vector[*new_pos]
-      end
+      @pos = _make_vector( new_pos )
     end
 
 
@@ -84,11 +79,19 @@ module Rebirth
     # new_scale  The new scale as a Vector or [x,y] Array.
     # 
     def scale=( new_scale )
-      case new_scale
-      when Vector
-        @scale = new_scale
+      @scale = _make_vector( new_scale )
+    end
+
+
+    private
+
+    # Takes a Vector or an [x,y] Array, returns a Vector.
+    def _make_vector( vector_or_array )
+      case vector_or_array
+      when Rebirth::Vector
+        vector_or_array
       when Array
-        @scale = Vector[*new_scale]
+        Rebirth::Vector[*vector_or_array]
       end
     end
 
