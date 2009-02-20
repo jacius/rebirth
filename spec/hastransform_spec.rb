@@ -61,6 +61,11 @@ describe HasTransform do
     @instance.rot.should == 1
   end
 
+  it "should convert initial rotation to float" do
+    @instance = @class.new( :rot => 10 )
+    @instance.rot.should be_instance_of(Float)
+  end
+
   it "should able to set rotation" do
     @instance.rot = 45
     @instance.rot.should == 45
