@@ -160,6 +160,12 @@ describe Vector do
   end
 
 
+  it "should be rotatable (radians)" do
+    expected = Vector.new_am(@v1.angle + 0.2, @v1.magnitude)
+    @v1.rotate(0.2).should == expected
+  end
+
+
   it "should be stretchable on both axes" do
     @v1.stretch(*@v2).should == Vector.new(3,-8)
   end
