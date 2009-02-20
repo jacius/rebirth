@@ -179,6 +179,14 @@ module Rebirth
     end
 
 
+    # Return a copy of this vector, but with angle increased by
+    # the given amount, in radians.
+    # 
+    def rotate( angle )
+      self.class.new_am( self.angle + angle, self.magnitude )
+    end
+
+
     # Return a copy of this vector, but scaled separately on each axis.
     # The new vector will be Vector[ x*scale_x, y*scale_y ].
     # 
