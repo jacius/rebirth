@@ -69,6 +69,15 @@ module Rebirth
       end
     end
 
+
+    # Sets the rotation to a new value.
+    # 
+    # new_rot::  The new rotation, in degrees.
+    # 
+    def rot=( new_rot )
+      @rot = new_rot
+    end
+
   end
 
 end
