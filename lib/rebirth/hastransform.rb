@@ -50,9 +50,9 @@ module Rebirth
     #            Default: [1,1]
     # 
     def initialize( options={} )
-      self.pos = (options[:pos]   or Rebirth::Vector[0,0])
-      self.rot = (options[:rot]   or 0)
-      @scale   = (options[:scale] or [1,1])
+      self.pos   = (options[:pos]   or Rebirth::Vector[0,0])
+      self.rot   = (options[:rot]   or 0)
+      self.scale = (options[:scale] or Rebirth::Vector[1,1])
     end
 
 
