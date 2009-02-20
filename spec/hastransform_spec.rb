@@ -28,8 +28,8 @@ describe HasTransform do
       @instance.rot.should == 0
     end
 
-    it "scale should be [1,1]" do
-      @instance.scale.should == [1,1]
+    it "scale should be Vector[1,1]" do
+      @instance.scale.should == Vector[1,1]
     end
 
   end
