@@ -90,8 +90,8 @@ module Rebirth
       case vector_or_array
       when Rebirth::Vector
         vector_or_array
-      when Array
-        Rebirth::Vector[*vector_or_array]
+      else
+        Rebirth::Vector[*(vector_or_array.to_ary)]
       end
     end
 
