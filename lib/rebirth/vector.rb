@@ -180,10 +180,18 @@ module Rebirth
 
 
     # Return a copy of this vector, but with angle increased by
-    # the given amount, in radians.
+    # the given amount, in radians. Use #drotate for degrees.
     # 
     def rotate( angle )
       self.class.new_am( self.angle + angle, self.magnitude )
+    end
+
+
+    # Return a copy of this vector, but with angle increased by
+    # the given amount, in degrees. Use #rotate for radians.
+    # 
+    def drotate( angle )
+      self.class.new_dam( self.dangle + angle, self.magnitude )
     end
 
 
