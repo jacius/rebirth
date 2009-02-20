@@ -78,8 +78,13 @@ describe HasTransform do
 
 
   it "should have a scale" do
+    @instance = @class.new( :scale => Vector[1,2] )
+    @instance.scale.should == Vector[1,2]
+  end
+
+  it "should convert initial scale to Vector" do
     @instance = @class.new( :scale => [1,2] )
-    @instance.scale.should == [1,2]
+    @instance.scale.should == Vector[1,2]
   end
 
   it "should be able to set scale" do
