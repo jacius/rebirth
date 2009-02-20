@@ -166,6 +166,12 @@ describe Vector do
   end
 
 
+  it "should be rotatable (degrees)" do
+    expected = Vector.new_dam(@v1.dangle + 30, @v1.magnitude)
+    @v1.drotate(30).should == expected
+  end
+
+
   it "should be stretchable on both axes" do
     @v1.stretch(*@v2).should == Vector.new(3,-8)
   end
