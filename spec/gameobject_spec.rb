@@ -16,5 +16,13 @@ describe GameObject do
   it "should include HasTransform" do
     @gob.should be_kind_of( Rebirth::HasTransform )
   end
-  
+
+  describe "(default)" do
+    
+    it "should have no shapes" do
+      @gob.should have(:no).shapes
+    end
+
+  end
+
 end
