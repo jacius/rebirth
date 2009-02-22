@@ -20,9 +20,10 @@
 # 
 #++
 
-#need{ "hastransform" }
+need{ "hastransform" }
 
 
 class Rebirth::GameObject
+  include Rebirth::HasTransform
 
 end
