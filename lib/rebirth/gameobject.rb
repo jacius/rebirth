@@ -20,30 +20,9 @@
 # 
 #++
 
-
-require 'opengl'
-require 'rubygame'
+#need{ "hastransform" }
 
 
-module Rebirth
+class Rebirth::GameObject
+
 end
-
-
-require File.join( File.dirname(__FILE__), 'rebirth', 'utility')
-
-%w{ 
-
-  gl
-  vector
-  view
-  camera
-  event_handler
-  event_manager
-  events
-  shape
-  box
-  gameobject
-
-}.each { |f|
-  need{ "rebirth/#{f}" }
-}
