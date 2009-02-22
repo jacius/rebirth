@@ -8,5 +8,13 @@ GameObject = Rebirth::GameObject
 
 
 describe GameObject do
+
+  before :each do
+    @gob = GameObject.new
+  end
+
+  it "should include HasTransform" do
+    @gob.should be_kind_of( Rebirth::HasTransform )
+  end
   
 end
