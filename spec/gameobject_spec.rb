@@ -23,6 +23,10 @@ describe GameObject do
       @gob.should have(:no).shapes
     end
 
+    it "should have no children" do
+      @gob.should have(:no).children
+    end
+
   end
 
 end
