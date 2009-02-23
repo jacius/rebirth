@@ -35,4 +35,8 @@ describe GameObject do
     @gob.shapes.should be_frozen
   end
 
+  it "public-visible children array should be frozen" do
+    @gob.children.should be_frozen
+  end
+
 end
