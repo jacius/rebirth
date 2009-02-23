@@ -20,23 +20,33 @@ describe GameObject do
 
   describe "(default)" do
     
-    it "should have no shapes" do
-      @gob.should have(:no).shapes
-    end
-
     it "should have no children" do
       @gob.should have(:no).children
     end
 
+    it "should have no shapes" do
+      @gob.should have(:no).shapes
+    end
+
   end
 
-  
-  it "public-visible shapes array should be frozen" do
-    @gob.shapes.should be_frozen
+
+  describe "children" do
+    
+    it "should appear frozen" do
+      @gob.children.should be_frozen
+    end
+
   end
 
-  it "public-visible children array should be frozen" do
-    @gob.children.should be_frozen
+
+  describe "shapes" do
+
+    it "should appear frozen" do
+      @gob.shapes.should be_frozen
+    end
+
   end
+
 
 end
