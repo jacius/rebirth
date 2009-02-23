@@ -26,11 +26,16 @@ need{ "hastransform" }
 class Rebirth::GameObject
   include Rebirth::HasTransform
 
-  attr_reader :children, :shapes
+  attr_reader :children
 
   def initialize
     @children = []
     @shapes = []
+  end
+
+
+  def shapes
+    @shapes.dup.freeze
   end
 
 end
