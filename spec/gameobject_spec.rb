@@ -17,6 +17,7 @@ describe GameObject do
     @gob.should be_kind_of( Rebirth::HasTransform )
   end
 
+
   describe "(default)" do
     
     it "should have no shapes" do
@@ -27,6 +28,11 @@ describe GameObject do
       @gob.should have(:no).children
     end
 
+  end
+
+  
+  it "public-visible shapes array should be frozen" do
+    @gob.shapes.should be_frozen
   end
 
 end
