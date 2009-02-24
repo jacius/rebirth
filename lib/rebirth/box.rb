@@ -38,7 +38,7 @@ class Rebirth::Box < Rebirth::Shape
              [ 0.5, 0.5],
              [-0.5, 0.5]]
 
-    verts.each { |vert|  glVertex( vert+[@depth] ) }
+    verts.each { |vert|  glVertex( vert+[0] ) }
 
     glEnd()
   end
