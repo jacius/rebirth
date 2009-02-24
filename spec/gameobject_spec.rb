@@ -57,6 +57,11 @@ describe GameObject do
       @gob.shapes.should be_frozen
     end
 
+    it "should be able to add shapes" do
+      @gob.add_shapes( :shape1, :shape2, :shape3 )
+      @gob.shapes.should == [:shape1, :shape2, :shape3]
+    end
+
   end
 
 
