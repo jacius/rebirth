@@ -38,7 +38,7 @@ class Rebirth::GameObject
 
 
   def add_shapes( *shapes )
-    @shapes.concat( shapes )
+    @shapes |= shapes
   end
 
 
