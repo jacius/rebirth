@@ -17,6 +17,10 @@ describe GameObject do
     @gob.should be_kind_of( Rebirth::HasTransform )
   end
 
+  it "should include HasEventHandler" do
+    @gob.should be_kind_of( Rebirth::HasEventHandler )
+  end
+
 
   describe "(default)" do
     
