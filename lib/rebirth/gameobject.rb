@@ -51,6 +51,10 @@ class Rebirth::GameObject
 
 
   def draw
+    sorted = @children.sort { |a,b| a.depth <=> b.depth }
+    sorted.reverse_each do |child|
+      child.draw
+    end
   end
 
 
