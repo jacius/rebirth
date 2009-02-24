@@ -21,10 +21,13 @@
 #++
 
 need{ "hastransform" }
+need{ "event_handler" }
 
 
 class Rebirth::GameObject
   include Rebirth::HasTransform
+  include Rebirth::HasEventHandler
+
 
   def initialize
     @children = []
