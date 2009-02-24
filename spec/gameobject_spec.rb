@@ -118,6 +118,19 @@ describe GameObject do
       @gob.draw
     end
 
+    it "should draw its shapes in descending depth order" do
+      deep_shape = mock("deep_shape", :depth => 35)
+      midl_shape = mock("midl_shape", :depth => 25)
+      near_shape = mock("near_shape", :depth => 15)
+
+      deep_shape.should_receive(:draw).ordered
+      midl_shape.should_receive(:draw).ordered
+      near_shape.should_receive(:draw).ordered
+
+      @gob.add_shapes( midl_shape, near_shape, deep_shape )
+      @gob.draw
+    end
+
   end
 
 end
