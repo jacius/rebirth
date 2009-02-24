@@ -48,6 +48,12 @@ describe GameObject do
       @gob.children.should == [:child1, :child3]
     end
 
+    it "removing a missing child should have no effect" do
+      @gob.add_children( :child1, :child2, :child3 )
+      @gob.remove_children( :child4 )
+      @gob.children.should == [:child1, :child2, :child3]
+    end
+
   end
 
 
