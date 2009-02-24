@@ -85,7 +85,7 @@ class Rebirth::Camera
 
     @viewport = (options[:viewport] or reset_from_view)
     @bgcolor  = (options[:bgcolor]  or [0,0,0,1])
-    
+
     make_active unless self.class.active_camera
   end
 
@@ -146,13 +146,13 @@ class Rebirth::Camera
   # matrix. This is called by #make_active.
   # 
   def _setup_projection
-		glMatrixMode( GL_PROJECTION )
-		glLoadIdentity()
+    glMatrixMode( GL_PROJECTION )
+    glLoadIdentity()
 
     w2,h2 = @viewport.at(2)*0.5, @viewport.at(3)*0.5
 
     # Scene will be translated at render time.
-		glOrtho(-w2, w2, -h2, h2, 0, 100)
+    glOrtho(-w2, w2, -h2, h2, 0, 100)
 
     glMatrixMode( GL_MODELVIEW )
   end
@@ -162,15 +162,15 @@ class Rebirth::Camera
   def _setup_rendering
     glClearColor(*@bgcolor)
 
-		glEnable(GL_SCISSOR_TEST)
+    glEnable(GL_SCISSOR_TEST)
   end
 
   # Perform some OpenGL magic to set up the viewport.
   # This is called by #make_active.
   def _setup_viewport
-		glViewport( *@viewport )
-		glScissor( *@viewport )
+    glViewport( *@viewport )
+    glScissor( *@viewport )
   end
-  
+
 
 end
