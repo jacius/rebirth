@@ -122,7 +122,7 @@ class Rebirth::Camera
   # any objects are drawn, or the scene will look wrong.
   # 
   def pre_draw
-    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
+    glClear(GL_COLOR_BUFFER_BIT)
 
     glLoadIdentity()
     glScale2( *@scale )
@@ -160,10 +160,6 @@ class Rebirth::Camera
   # Perform some OpenGL magic to set up some rendering stuff.
   # This is called by #make_active.
   def _setup_rendering
-		glEnable(GL_DEPTH_TEST)
-		glDepthFunc(GL_LESS)
-    glClearDepth(100)
-
     glClearColor(*@bgcolor)
 
 		glEnable(GL_SCISSOR_TEST)
