@@ -99,4 +99,12 @@ describe GameObject do
   end
 
 
+  describe "drawing" do
+    
+    it "should be able to draw" do
+      @gob.should respond_to(:draw)
+    end
+
+  end
+
 end
