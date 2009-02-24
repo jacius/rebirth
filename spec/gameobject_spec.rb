@@ -105,6 +105,19 @@ describe GameObject do
       @gob.should respond_to(:draw)
     end
 
+    it "should draw its children in descending depth order" do
+      deep_child = mock("deep_child", :depth => 30)
+      midl_child = mock("midl_child", :depth => 20)
+      near_child = mock("near_child", :depth => 10)
+
+      deep_child.should_receive(:draw).ordered
+      midl_child.should_receive(:draw).ordered
+      near_child.should_receive(:draw).ordered
+
+      @gob.add_children( midl_child, near_child, deep_child )
+      @gob.draw
+    end
+
   end
 
 end
