@@ -100,59 +100,66 @@ describe GameObject do
 
 
   describe "drawing" do
-    
+
     it "should be able to draw" do
       @gob.should respond_to(:draw)
     end
 
-    it "should draw its children in descending depth order" do
-      deep_child = mock("deep_child", :depth => 30)
-      midl_child = mock("midl_child", :depth => 20)
-      near_child = mock("near_child", :depth => 10)
 
-      deep_child.should_receive(:draw).ordered
-      midl_child.should_receive(:draw).ordered
-      near_child.should_receive(:draw).ordered
+    # Helper class to test the order of drawing.
+    # Appends its name to the target when draw is called.
+    class Ordered
+      attr_reader :depth
+      def initialize(name, target, depth)
+        @name, @target, @depth = name, target, depth
+      end
+      def draw
+        @target << @name
+      end
+    end
+    
+    it "should draw its children in descending depth order" do
+      order = []
+      deep_child = Ordered.new("deep_child", order, 30)
+      midl_child = Ordered.new("midl_child", order, 20)
+      near_child = Ordered.new("near_child", order, 10)
 
       @gob.add_children( midl_child, near_child, deep_child )
       @gob.draw
+
+      order.should == ["deep_child", "midl_child", "near_child"]
     end
 
     it "should draw its shapes in descending depth order" do
-      deep_shape = mock("deep_shape", :depth => 35)
-      midl_shape = mock("midl_shape", :depth => 25)
-      near_shape = mock("near_shape", :depth => 15)
-
-      deep_shape.should_receive(:draw).ordered
-      midl_shape.should_receive(:draw).ordered
-      near_shape.should_receive(:draw).ordered
+      order = []
+      deep_shape = Ordered.new("deep_shape", order, 30)
+      midl_shape = Ordered.new("midl_shape", order, 20)
+      near_shape = Ordered.new("near_shape", order, 10)
 
       @gob.add_shapes( midl_shape, near_shape, deep_shape )
       @gob.draw
+
+      order.should == ["deep_shape", "midl_shape", "near_shape"]
     end
 
     it "should draw shapes and children intermixed" do
+      order = []
       
-      deep_child = mock("deep_child", :depth => 30)
-      midl_child = mock("midl_child", :depth => 20)
-      near_child = mock("near_child", :depth => 10)
+      deep_child = Ordered.new("deep_child", order, 30)
+      midl_child = Ordered.new("midl_child", order, 20)
+      near_child = Ordered.new("near_child", order, 10)
 
-      deep_shape = mock("deep_shape", :depth => 35)
-      midl_shape = mock("midl_shape", :depth => 25)
-      near_shape = mock("near_shape", :depth => 15)
-
-      deep_shape.should_receive(:draw).ordered # 35
-      deep_child.should_receive(:draw).ordered # 30
-      midl_shape.should_receive(:draw).ordered # 25
-      midl_child.should_receive(:draw).ordered # 20
-      near_shape.should_receive(:draw).ordered # 15
-      near_child.should_receive(:draw).ordered # 10
-
+      deep_shape = Ordered.new("deep_shape", order, 35)
+      midl_shape = Ordered.new("midl_shape", order, 25)
+      near_shape = Ordered.new("near_shape", order, 15)
 
       @gob.add_children( midl_child, near_child, deep_child )
       @gob.add_shapes( midl_shape, near_shape, deep_shape )
       @gob.draw
 
+      order.should == ["deep_shape", "deep_child",
+                       "midl_shape", "midl_child",
+                       "near_shape", "near_child"]
     end
 
   end
