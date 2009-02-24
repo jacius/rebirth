@@ -74,6 +74,12 @@ describe GameObject do
       @gob.shapes.should == [:shape1, :shape3]
     end
 
+    it "removing a missing shape should have no effect" do
+      @gob.add_shapes( :shape1, :shape2, :shape3 )
+      @gob.remove_shapes( :shape4 )
+      @gob.shapes.should == [:shape1, :shape2, :shape3]
+    end
+
   end
 
 
