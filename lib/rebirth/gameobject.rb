@@ -55,6 +55,11 @@ class Rebirth::GameObject
     sorted.reverse_each do |child|
       child.draw
     end
+
+    sorted = @shapes.sort { |a,b| a.depth <=> b.depth }
+    sorted.reverse_each do |shape|
+      shape.draw
+    end
   end
 
 
