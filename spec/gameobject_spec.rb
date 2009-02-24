@@ -42,6 +42,12 @@ describe GameObject do
       @gob.children.should == [:child1, :child2, :child3]
     end
 
+    it "should not add children it already has" do
+      @gob.add_children( :child1, :child2, :child1 )
+      @gob.add_children( :child2 )
+      @gob.children.should == [:child1, :child2]
+    end
+
     it "should be able to remove children" do
       @gob.add_children( :child1, :child2, :child3, :child4 )
       @gob.remove_children( :child2, :child4 )
