@@ -131,6 +131,30 @@ describe GameObject do
       @gob.draw
     end
 
+    it "should draw shapes and children intermixed" do
+      
+      deep_child = mock("deep_child", :depth => 30)
+      midl_child = mock("midl_child", :depth => 20)
+      near_child = mock("near_child", :depth => 10)
+
+      deep_shape = mock("deep_shape", :depth => 35)
+      midl_shape = mock("midl_shape", :depth => 25)
+      near_shape = mock("near_shape", :depth => 15)
+
+      deep_shape.should_receive(:draw).ordered # 35
+      deep_child.should_receive(:draw).ordered # 30
+      midl_shape.should_receive(:draw).ordered # 25
+      midl_child.should_receive(:draw).ordered # 20
+      near_shape.should_receive(:draw).ordered # 15
+      near_child.should_receive(:draw).ordered # 10
+
+
+      @gob.add_children( midl_child, near_child, deep_child )
+      @gob.add_shapes( midl_shape, near_shape, deep_shape )
+      @gob.draw
+
+    end
+
   end
 
 end
