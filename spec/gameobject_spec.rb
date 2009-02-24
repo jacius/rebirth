@@ -62,6 +62,12 @@ describe GameObject do
       @gob.shapes.should == [:shape1, :shape2, :shape3]
     end
 
+    it "should be able to remove shapes" do
+      @gob.add_shapes( :shape1, :shape2, :shape3, :shape4 )
+      @gob.remove_shapes( :shape2, :shape4 )
+      @gob.shapes.should == [:shape1, :shape3]
+    end
+
   end
 
 
