@@ -33,7 +33,7 @@ class Rebirth::GameObject
 
 
   def add_children( *children )
-    @children.concat( children )
+    @children |= children
   end
 
 
