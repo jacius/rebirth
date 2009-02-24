@@ -32,6 +32,11 @@ class Rebirth::GameObject
   end
 
 
+  def add_children( *children )
+    @children.concat( children )
+  end
+
+
   def children
     @children.dup.freeze
   end
