@@ -51,6 +51,12 @@ class Rebirth::GameObject
     @children -= children
   end
 
+
+  def remove_shapes( *shapes )
+    @shapes -= shapes
+  end
+
+
   def shapes
     @shapes.dup.freeze
   end
