@@ -37,6 +37,11 @@ class Rebirth::GameObject
   end
 
 
+  def add_shapes( *shapes )
+    @shapes.concat( shapes )
+  end
+
+
   def children
     @children.dup.freeze
   end
