@@ -37,6 +37,11 @@ describe GameObject do
       @gob.children.should be_frozen
     end
 
+    it "should be able to add children" do
+      @gob.add_children( :child1, :child2, :child3 )
+      @gob.children.should == [:child1, :child2, :child3]
+    end
+
   end
 
 
