@@ -50,6 +50,10 @@ class Rebirth::GameObject
   end
 
 
+  def draw
+  end
+
+
   def remove_children( *children )
     @children -= children
   end
