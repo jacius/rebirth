@@ -29,7 +29,8 @@ class Rebirth::GameObject
   include Rebirth::HasEventHandler
 
 
-  def initialize
+  def initialize( options={} )
+    super
     @children = []
     @shapes = []
   end
