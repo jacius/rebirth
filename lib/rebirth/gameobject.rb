@@ -58,10 +58,7 @@ class Rebirth::GameObject
     glRotate1( @rot )
     glScale2( *@scale )
 
-    sorted = (@children + @shapes).sort { |a,b| a.depth <=> b.depth }
-    sorted.reverse_each do |thing|
-      thing.draw
-    end
+    _draw
 
     glPopMatrix()
   end
@@ -79,6 +76,16 @@ class Rebirth::GameObject
 
   def shapes
     @shapes.dup.freeze
+  end
+
+
+  private
+
+  def _draw
+    sorted = (@children + @shapes).sort { |a,b| a.depth <=> b.depth }
+    sorted.reverse_each do |thing|
+      thing.draw
+    end
   end
 
 end
