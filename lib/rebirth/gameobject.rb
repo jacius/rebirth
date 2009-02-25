@@ -52,10 +52,18 @@ class Rebirth::GameObject
 
 
   def draw
+    glPushMatrix()
+
+    glTranslate2( *@pos )
+    glRotate1( @rot )
+    glScale2( *@scale )
+
     sorted = (@children + @shapes).sort { |a,b| a.depth <=> b.depth }
     sorted.reverse_each do |thing|
       thing.draw
     end
+
+    glPopMatrix()
   end
 
 
