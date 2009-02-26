@@ -20,76 +20,10 @@
 # 
 #++
 
-need{ "hastransform" }
+need{ "drawable" }
 
 # Shape is the base class for all shapes in Rebirth.
 # 
 class Rebirth::Shape
-  include Rebirth::HasTransform
-
-  attr_reader :depth
-
-  # Create a new Shape with certain options:
-  # 
-  # :pos::     The position of the shape's center, relative to
-  #            its parent (either a sprite or the world).
-  #            Default: Vector[0,0].
-  # 
-  # :rot::     The rotation (angle) of the shape, in degrees.
-  #            Rotation increases counter-clockwise.
-  #            Default: 0.
-  # 
-  # :scale::   The x and y scale factors of the shape.
-  #            scale < 1 shrinks, scale > 1 grows.
-  #            Default: [1,1]
-  # 
-  # 
-  # :depth::   The depth of the shape. Shapes with high depths
-  #            appear behind shapes with low depths.
-  #            Default: 0.
-  # 
-  # :visible:: If false, the shape is not drawn.
-  #            Default: true.
-  # 
-  def initialize( options={} )
-    super
-
-    @depth   = (options[:depth] or 0)
-    @visible = (options.has_key?(:visible) ? options[:visible] : true)
-  end
-
-
-  # Draw the shape on the screen.
-  # 
-  # This method handles OpenGL transformation, and delegates
-  # to the #_draw method to perform the actual drawing in local
-  # space.
-  def draw
-    glPushMatrix()
-
-    glTranslate2( *@pos )
-    glRotate1( @rot )
-    glScale2( *@scale )
-
-    _draw()
-
-    glPopMatrix()
-  end
-
-  def visible?
-    @visible
-  end
-
-  private
-
-  # Called by #draw to perform the OpenGL calls to
-  # actually draw the shape. Overridden by subclasses.
-  # 
-  # The #draw method handles translation, rotation, and
-  # scaling according to @pos, @rot, and @scale, so #_draw
-  # should draw in "local space".
-  # 
-  def _draw
-  end
-
+  include Rebirth::Drawable
 end
