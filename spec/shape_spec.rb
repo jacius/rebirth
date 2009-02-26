@@ -6,18 +6,23 @@ require 'rebirth'
 include Rebirth
 
 need { "shared_drawable_spec" }
+need { "shared_hastransform_spec" }
 
 describe Shape do
 
   before :each do
-    @shape = Shape.new
     @class = Shape
   end
 
+  it_should_behave_like "a drawable"
+  it_should_behave_like "an object that has transform"
+
   it "should include HasTransform" do
-    @shape.should be_kind_of( HasTransform )
+    Shape.new.should be_kind_of( HasTransform )
   end
 
-  it_should_behave_like "a drawable"
+  it "should include Drawable" do
+    Shape.new.should be_kind_of( Drawable )
+  end
 
 end
