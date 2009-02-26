@@ -6,12 +6,19 @@ require 'rebirth'
 R = Rebirth
 GameObject = Rebirth::GameObject
 
+need { "shared_hastransform_spec" }
+need { "shared_drawable_spec" }
+
 
 describe GameObject do
 
   before :each do
+    @class = GameObject
     @gob = GameObject.new
   end
+
+  it_should_behave_like "a drawable"
+  it_should_behave_like "an object that has transform"
 
   it "should include HasTransform" do
     @gob.should be_kind_of( Rebirth::HasTransform )
@@ -19,6 +26,10 @@ describe GameObject do
 
   it "should include HasEventHandler" do
     @gob.should be_kind_of( Rebirth::HasEventHandler )
+  end
+
+  it "should include Drawable" do
+    @gob.should be_kind_of( Rebirth::Drawable )
   end
 
 
