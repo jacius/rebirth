@@ -1,6 +1,6 @@
 
 # The version number for Rebirth.
-REBIRTH_VERSION = [0,5]
+REBIRTH_VERSION = [0,6]
 
 require 'rake'
 
