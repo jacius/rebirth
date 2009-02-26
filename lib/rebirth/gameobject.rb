@@ -20,12 +20,12 @@
 # 
 #++
 
-need{ "hastransform" }
+need{ "drawable" }
 need{ "event_handler" }
 
 
 class Rebirth::GameObject
-  include Rebirth::HasTransform
+  include Rebirth::Drawable
   include Rebirth::HasEventHandler
 
 
@@ -48,19 +48,6 @@ class Rebirth::GameObject
 
   def children
     @children.dup.freeze
-  end
-
-
-  def draw
-    glPushMatrix()
-
-    glTranslate2( *@pos )
-    glRotate1( @rot )
-    glScale2( *@scale )
-
-    _draw
-
-    glPopMatrix()
   end
 
 
