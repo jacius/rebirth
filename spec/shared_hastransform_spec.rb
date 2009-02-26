@@ -8,81 +8,77 @@ include Rebirth
 
 describe "an object that has transform", :shared => true do
 
-  describe "(default)" do
-    
-    it "position should be Vector[0,0]" do
-      @instance.pos.should == Vector[0,0]
-    end
+  it "default position should be Vector[0,0]" do
+    @class.new.pos.should == Vector[0,0]
+  end
 
-    it "rotation should be 0" do
-      @instance.rot.should == 0
-    end
+  it "default rotation should be 0" do
+    @class.new.rot.should == 0
+  end
 
-    it "scale should be Vector[1,1]" do
-      @instance.scale.should == Vector[1,1]
-    end
-
+  it "default scale should be Vector[1,1]" do
+    @class.new.scale.should == Vector[1,1]
   end
 
 
   it "should have a position vector" do
-    @instance = @class.new( :pos => Vector[1,2] )
-    @instance.pos.should == Vector[1,2]
+    @class.new( :pos => Vector[1,2] ).pos.should == Vector[1,2]
   end
 
   it "should convert initial position to Vector" do
-    @instance = @class.new( :pos => [1,2] )
-    @instance.pos.should == Vector[1,2]
+    @class.new( :pos => [1,2] ).pos.should == Vector[1,2]
   end
 
   it "should be able to set position" do
+    @instance = @class.new
     @instance.pos = Vector[4,1]
     @instance.pos.should == Vector[4,1]
   end
 
   it "should convert set position to Vector" do
+    @instance = @class.new
     @instance.pos = [4,1]
     @instance.pos.should == Vector[4,1]
   end
 
 
   it "should have a rotation" do
-    @instance = @class.new( :rot => 1 )
-    @instance.rot.should == 1
+    @class.new( :rot => 1 ).rot.should == 1
   end
 
   it "should convert initial rotation to float" do
-    @instance = @class.new( :rot => 10 )
-    @instance.rot.should be_instance_of(Float)
+    @class.new( :rot => 10 ).rot.should be_instance_of(Float)
   end
 
   it "should able to set rotation" do
+    @instance = @class.new
     @instance.rot = 45
     @instance.rot.should == 45
   end
 
   it "should convert set rotation to float" do
+    @instance = @class.new
     @instance.rot = 45
     @instance.rot.should be_instance_of(Float)
   end
 
 
   it "should have a scale" do
-    @instance = @class.new( :scale => Vector[1,2] )
-    @instance.scale.should == Vector[1,2]
+    @class.new( :scale => Vector[1,2] ).scale.should == Vector[1,2]
   end
 
   it "should convert initial scale to Vector" do
-    @instance = @class.new( :scale => [1,2] )
-    @instance.scale.should == Vector[1,2]
+    @class.new( :scale => [1,2] ).scale.should == Vector[1,2]
   end
 
   it "should be able to set scale" do
+    @instance = @class.new
     @instance.scale = Vector[3,4]
     @instance.scale.should == Vector[3,4]
   end
 
   it "should convert set scale to Vector" do
+    @instance = @class.new
     @instance.scale = [3,4]
     @instance.scale.should == Vector[3,4]
   end
