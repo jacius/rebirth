@@ -6,17 +6,7 @@ require 'rebirth'
 include Rebirth
 
 
-class Transformer
-  include HasTransform
-end
-
-
-describe HasTransform do
-
-  before :each do
-    @class = Transformer
-    @instance = @class.new
-  end
+describe "an object that has transform", :shared => true do
 
   describe "(default)" do
     
